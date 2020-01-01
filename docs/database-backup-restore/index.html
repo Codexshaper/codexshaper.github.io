@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> database backup restore</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"> Database Backup Restore Documentation</h1>
+                </div><!--//doc-header-->
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper">
+            <div class="container">
+                <div class="doc-body row">
+
+                <!--=============== slidebar-menu  Start =============== -->
+                <div class="doc-sidebar col-md-3">
+                    <div id="doc-nav" class="doc-nav">
+                        <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                            <a class="nav-link scrollto" href="#installation-section">Installation</a>
+                            <a class="nav-link scrollto" href="#mysql-section">Mysql
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#my_dump">Dump</a>
+                                    <a class="nav-link scrollto" href="#my_restore">Restore </a>
+                                </nav><!--//nav-->
+                            </a>
+                            <a class="nav-link scrollto" href="#pgsql-section">pgsql
+                                 <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#pgsql_dump">Dump</a>
+                                    <a class="nav-link scrollto" href="#pgsql_restore">Restore </a>
+                                </nav><!--//nav-->
+                            </a>
+                            <a class="nav-link scrollto" href="#sqlite-section">Sqlite
+                                 <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#sqlite_dump">Dump</a>
+                                    <a class="nav-link scrollto" href="#sqlite_restore">Restore </a>
+                                </nav><!--//nav-->
+
+                            </a>
+                            <a class="nav-link scrollto" href="#mongodb-section">Mongodb
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#mongodb_dump">Dump</a>
+                                    <a class="nav-link scrollto" href="#mongodb_restore">Restore </a>
+                                </nav><!--//nav-->
+                            </a>
+                            <a class="nav-link scrollto" href="#common-section">
+                                Common setup
+                            </a>
+                            <a class="nav-link scrollto" href="#functions-section">
+                                Functions
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setDbName">setDbName</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setUserName">setDbName</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setPassword">setPassword</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setHost">setHost</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setPort">setPort</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setSocket">setSocket</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setTimeOut">setTimeOut</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setTables">setTables</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setIgnoreTables">setIgnoreTables</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setCommandBinaryPath">setCommandBinaryPath</a>
+                                </nav><!--//nav-->
+
+                                 <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setDestinationPath">setDestinationPath</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setRestorePath">setRestorePath</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setCompressBinaryPath">setCompressBinaryPath</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setCompressCommand">setCompressCommand</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setCompressExtension">setCompressExtension</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useCompress">useCompress</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getDbName">getDbName</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getDbName">getDbName</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getHost">getHost</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getHost">getPort</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getSocket">getSocket</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getTimeOut">getTimeOut</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getDumpCommandPath">getDumpCommandPath</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getDestinationPath">getDestinationPath</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getRestorePath">getRestorePath</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#enableDebug">enableDebug</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setUri">setUri</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setCollection">setCollection</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setAuthenticationDatabase">setAuthenticationDatabase</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useSingleTransaction">useSingleTransaction</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useSkipLockTables">useSkipLockTables</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useQuick">useQuick</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#doNotUseSkipComments">doNotUseSkipComments</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#doNotUseCreateTables">doNotUseCreateTables</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setDefaultCharacterSe">setDefaultCharacterSe</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useInserts">useInserts</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#prepareDumpCommand">prepareDumpCommand</a>
+                                </nav><!--//nav-->
+                                 <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#prepareRestoreCommand">prepareRestoreCommand</a>
+                                </nav><!--//nav-->
+
+
+
+
+
+
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#dump">dump</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#restore">restore</a>
+                                </nav><!--//nav-->
+
+                            </a>
+                        </nav><!--//doc-menu-->
+                    </div>
+                </div>
+                <!--=============== slidebar-menu  End =============== -->
+
+               <!--=================== doc-content  Start =================== -->
+
+                <div class="doc-content col-md-9">
+                    <div class="content-inner">
+                        <section id="installation-section" class="doc-section">
+                            <h2 class="section-title">Installation</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block">composer require codexshaper/database-backup-restore</div>
+                            </div><!--//section-block-->
+                        </section><!--//doc-section-->
+                        <section id="mysql-section" class="doc-section"><!--=============== mysql-section Start ===============-->
+                            <h2 class="section-title">Mysql</h2>
+
+                            <!--=================== my_dump  Start ===================-->
+
+                            <div id="my_dump"  class="section-block">
+                                <h3 class="block-title">Dump</h3>
+                                <div class="block"> Mustbe installed <span>mysqldump</span> in your system</div> 
+                                <div class="code-block" > 
+                                 <pre><code class="language-php">
+&lt;?php 
+
+$options    = [
+    'host'            => 'HOST',
+    'port'            => 'PORT',
+    'dbName'          => 'DATABASE_NAME',
+    'username'        => 'DATABASE_USERNAME',
+    'password'        => 'DATABASE_PASSWORD',
+    'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/mysql/dump
+];
+
+?&gt;
+                                   </code></pre>
+                                </div><!--//code-block-->
+                                 <div class="code-block">
+                                    <h6>Use constructor with options</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\MysqlDumper($options);
+$dumper->dump();
+
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Use create method</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MysqlDumper::create($options)->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Dynamically</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setHost($host)
+  ->setPort($port)
+  ->setDbName($database)
+  ->setUserName($username)
+  ->setPassword($password)
+  ->setDestinationPath($destinationPath)
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MysqlDumper::create($options)
+  ->useCompress("gzip") // This command apply gzip to zip
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== my_dump  End ===================-->
+
+                            <!--=================== my_restore  Start ===================-->
+
+                            <div id="my_restore"  class="section-block">
+                                <h3 class="block-title">Restore</h3>
+                                <div class="block"> Mustbe installed <span>mysql</span> in your system</div> 
+                                 <div class="code-block">
+                                    <h6>Restore from without archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\MysqlDumper($options);
+$dumper->setRestorePath($restorePath); // /path/to/backups/mysql/dump.sql 
+$dumper->restore();
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Restore from archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MysqlDumper::create($options)
+  ->useCompress("gunzip") // this command unzip the file
+  ->setRestorePath($restorePath) // /path/to/backups/mysql/dump.sql.gz
+  ->restore();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== my_restore  End ===================-->
+                        </section> <!--=============== mysql-section End ===============-->
+
+                        <section id="pgsql-section" class="doc-section"><!--=============== pgsql-section Start ===============-->
+                            <h2 class="section-title">Pgsql</h2>
+
+                            <!--=================== pgsql_dump  Start ===================-->
+
+                            <div id="pgsql_dump"  class="section-block">
+                                <h3 class="block-title">Dump</h3>
+                                <div class="block"> Mustbe installed <span>pg_dump</span> in your system</div>
+                                <div class="code-block" > 
+                                 <pre><code class="language-php">
+&lt;?php 
+
+$options    = [
+    'host'            => 'HOST',
+    'port'            => 'PORT',
+    'dbName'          => 'DATABASE_NAME',
+    'username'        => 'DATABASE_USERNAME',
+    'password'        => 'DATABASE_PASSWORD',
+    'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/pgsql/dump
+];
+
+?&gt;
+                                   </code></pre>
+                                </div><!--//code-block-->
+                                 <div class="code-block">
+                                    <h6>Use constructor with options</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\PgsqlDumper($options);
+$dumper->dump();
+
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Use create method</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\PgsqlDumper::create($options)->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Dynamically</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\PgsqlDumper::create()
+  ->setHost($host)
+  ->setPort($port)
+  ->setDbName($database)
+  ->setUserName($username)
+  ->setPassword($password)
+  ->setDestinationPath($destinationPath)
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\PgsqlDumper::create($options)
+  ->useCompress("gzip") // This command apply gzip to zip
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== pgsql_dump  End ===================-->
+
+                            <!--=================== pgsql_restore  Start ===================-->
+
+                            <div id="pgsql_restore"  class="section-block">
+                                <h3 class="block-title">Restore</h3>
+                                <div class="block"> Mustbe installed <span>psql</span> in your system</div>
+                                <div class="code-block">
+                                    <h6>Restore from without archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\PgsqlDumper($options);
+$dumper->setRestorePath($restorePath); // /path/to/backups/pgsql/dump.sql 
+$dumper->restore();
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                                <div class="code-block">
+                                    <h6>Restore from archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\PgsqlDumper::create($options)
+  ->useCompress("gunzip") // this command unzip the file
+  ->setRestorePath($restorePath) // /path/to/backups/pgsql/dump.sql.gz
+  ->restore();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== pgsql_restore  End ===================-->
+
+                        </section> <!--=============== pgsql-section End ===============-->
+
+                        <section id="sqlite-section" class="doc-section"><!--=============== sqlite-section Start ===============-->
+                            <h2 class="section-title">Sqlite</h2>
+
+                            <!--=================== sqlite_dump  Start ===================-->
+
+                            <div id="sqlite_dump"  class="section-block">
+                                <h3 class="block-title">Dump</h3>
+                                <div class="block"> Mustbe installed <span>sqlite3</span> in your system</div>
+                                <div class="code-block" > 
+                                 <pre><code class="language-php">
+&lt;?php 
+
+$options    = [
+    'dbName'          => 'DATABASE_PATH', // /path/to/database.sqlite
+    'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/sqlite/dump.sql
+];
+
+?&gt;
+                                   </code></pre>
+                                </div><!--//code-block-->
+                                 <div class="code-block">
+                                    <h6>Use constructor with options</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\SqliteDumper($options);
+$dumper->dump();
+
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Use create method</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\SqliteDumper::create($options)->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Dynamically</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->setDbName($database)
+  ->setDestinationPath($destinationPath)
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->setDbName($database)
+  ->setDestinationPath($destinationPath)
+  ->useCompress("gzip") // This command apply gzip to zip
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== sqlite_dump  End ===================-->
+
+                            <!--=================== sqlite_restore  Start ===================-->
+
+                            <div id="sqlite_restore"  class="section-block">
+                                <h3 class="block-title">Restore</h3>
+                                <div class="block"> Mustbe installed <span>sqlite3</span> in your system</div>
+                                <div class="code-block">
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$options    = [
+    'dbName'          => 'DATABASE_PATH', // /path/to/database.sqlite
+    'restorePath' => 'RESTORE_PATH_WITH_FILE_NAME', // /path/to/backups/sqlite/dump.sql
+];
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+
+                                <div class="code-block">
+                                    <h6>Use Construct</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\SqliteDumper($options);
+$dumper->restore();
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+
+                                <div class="code-block">
+                                    <h6>Use Dynamic</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\SqliteDumper($options);
+$dumper->restore();
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->              
+
+                               <div class="code-block">
+                                    <h6>Restore from archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->setDbName($database)
+  ->setRestorePath($restorePath)
+  ->useCompress("gunzip") // This command apply gzip to zip
+  ->restore();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== sqlite_restore  End ===================-->
+                        </section> <!--=============== sqlite-section End ===============-->
+
+                        <section id="mongodb-section" class="doc-section"><!--=============== mangodb-section Start ===============-->
+                            <h2 class="section-title">Mongodb</h2>
+
+                            <!--=================== mongodb_dump  Start ===================-->
+
+                            <div id="mongodb_dump"  class="section-block">
+                                <h3 class="block-title">Dump</h3>
+                                <div class="block"> Mustbe installed <span>mongodump</span> in your system</div>
+                                <div class="code-block" > 
+                                 <pre><code class="language-php">
+&lt;?php 
+
+$options    = [
+    'host'            => 'HOST',
+    'port'            => 'PORT',
+    'dbName'          => 'DATABASE_NAME',
+    'username'        => 'DATABASE_USERNAME',
+    'password'        => 'DATABASE_PASSWORD',
+    'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/mongodb/dump
+];
+
+?&gt;
+                                   </code></pre>
+                                </div><!--//code-block-->
+                                 <div class="code-block">
+                                    <h6>Use constructor with options</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\MongoDumper($options);
+$dumper->dump();
+
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Use create method</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create($options)->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Dynamically</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create()
+  ->setHost($host)
+  ->setPort($port)
+  ->setDbName($database)
+  ->setUserName($username)
+  ->setPassword($password)
+  ->setDestinationPath($destinationPath)
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create($options)
+  ->useCompress("gzip") // This command will add --archive with --gzip
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block--> 
+                                <div class="code-block">
+                                     <h3 class="block-title">Use URI</h3>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$options = [
+    'uri'             => $uri,
+    "destinationPath" => $destinationPath, // /path/to/backups/mongodb/dump 
+];
+$dumper = new \CodexShaper\Dumper\Drivers\MongoDumper($options);
+$dumper->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                                <div class="code-block">
+                                     <h6>OR</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
+  ->setDestinationPath($destinationPath)
+  ->dump()
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                                <div class="code-block">
+                                     <h6>Dynamic</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create()
+  ->setUri($uri)
+  ->setDestinationPath($destinationPath)
+  ->dump()
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                                <div class="code-block">
+                                     <h6>Compress</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
+  ->useCompress("gzip")
+  ->setDestinationPath($destinationPath)
+  ->dump();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+
+
+
+
+                            </div><!--//section-block-->
+                           <!--=================== mongodb_dump  End ===================-->
+
+                            <!--=================== mongodb_restore  Start ===================-->
+
+                            <div id="mongodb_restore"  class="section-block">
+                                <h3 class="block-title">Restore</h3>
+                                <div class="block"> Mustbe installed <span>mongorestore</span> in your system</div>
+
+                                 <div class="code-block">
+                                    <h6>Restore from without archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+$dumper = new \CodexShaper\Dumper\Drivers\MongoDumper($options);
+$dumper->setRestorePath($restorePath); // /path/to/backups/mongodb/dump 
+$dumper->restore();
+?&gt;
+                                    </code></pre>
+                                </div><!--//code-block-->
+                               <div class="code-block">
+                                    <h6>Restore from archive</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create($options)
+  ->useCompress("gzip")
+  ->setRestorePath($restorePath) // /path/to/backups/mongodb/dump.gz
+  ->restore();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                                <div class="code-block">
+                                    <h6>Use URI</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
+    ->setRestorePath($restorePath)
+    ->restore();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+
+                                <div class="code-block">
+                                    <h6>Restore from archive using URI</h6>
+                                    <pre><code class="language-php">
+&lt;?php  
+
+\CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
+  ->useCompress("gzip")
+  ->setRestorePath($restorePath)
+  ->restore();
+
+?&gt;
+                                      </code>
+                                   </pre>
+                                </div><!--//code-block-->
+                            </div><!--//section-block-->
+                           <!--=================== mongodb_restore  End ===================-->
+                        </section> <!--=============== mongodb-section End ===============-->
+
+                        <!--=============== common-section End ===============-->
+                        <section id="common-section" class="doc-section">
+                            <div class="code-block">
+                                <h6>Set Dump Binary Path</h6>
+                                <pre><code class="language-php">
+&lt;?php  
+
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create($options)
+  ->setCommandBinaryPath($binaryPath) // /path/to/mysql/bin
+  ->dump();
+
+?&gt;
+                                    </code>
+                                </pre>
+                            </div><!--//code-block-->
+                        </section>
+                        <!--=============== common-section End ===============-->
+
+                        <!--=============== functions-section End ===============-->                     
+                        <section id="functions-section" class="doc-section">
+                            <div id="setDbName"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title ">setDbName ()</h5>
+                                    <p class="fun-info"> This function is return string</p>
+                                    <div class="block function-name"> 
+                                           <span class="f-name">setDbName</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setUserName"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title ">setUserName ()</h5>
+                                    <p class="fun-info"> This function is return string</p>
+                                    <div class="block function-name"> 
+                                           <span class="f-name">setUserName</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setPassword"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setPassword ()</h5>
+                                    <p class="fun-info"> This function is return string</p>
+                                    <div class="block function-name"> 
+                                           <span class="f-name">setPassword</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setHost"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setHost ()</h5>
+                                    <p class="fun-info"> This function is return string</p>
+                                    <div class="block function-name"> 
+                                           <span class="f-name">setHost</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="setPort"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setPort ()</h5>
+                                    <p class="fun-info">This function returns  <strong>true</strong> if the variable is of type integer, otherwise it returns <strong>false</strong>.</p>
+                                    <div class="block function-name"> 
+                                           <span class="f-name">setPort</span>  ( int $int) : <span class="return"> int</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setSocket"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setSocket ()</h5>
+                                    <p class="fun-info">This function is return  string .</p>
+                                    <div class="block function-name"> 
+                                           <span class="f-name">setSocket</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setTimeOut"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setTimeOut ()</h5>
+                                    <p class="fun-info">This function returns  <strong>true</strong> if the variable is of type integer, otherwise it returns <strong>false</strong>.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setTimeOut</span>  ( int $int) : <span class="return"> int</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setTables"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setTables ()</h5>
+                                    <p class="fun-info">This function returns  <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setTables</span>  ( string $str |array $options) : <span class="return"> void</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setIgnoreTables"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setIgnoreTables ()</h5>
+                                    <p class="fun-info">This function returns  <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setIgnoreTables</span>  ( string $str |array $options) : <span class="return"> void</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setCommandBinaryPath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setCommandBinaryPath ()</h5>
+                                    <p class="fun-info">This function is  return string</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setCommandBinaryPath</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setDestinationPath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setDestinationPath ()</h5>
+                                    <p class="fun-info">This function is  return string</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setDestinationPath</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                           <div id="setRestorePath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setRestorePath ()</h5>
+                                    <p class="fun-info">This function is  return string</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setRestorePath</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setCompressBinaryPath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setCompressBinaryPath ()</h5>
+                                    <p class="fun-info">This function is  return binary_string</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setCompressBinaryPath</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setCompressCommand"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setCompressCommand ()</h5>
+                                    <p class="fun-info">This function is  return string</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setCompressCommand</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setCompressExtension"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setCompressExtension ()</h5>
+                                    <p class="fun-info">This function is  return string</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setCompressExtension</span>  ( string $str) : <span class="return"> string</span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="useCompress"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">useCompress ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">useCompress</span>  ( string $command,string $extension, string $binary_path) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div> 
+                            <div id="getDbName"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getDbName ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getDbName</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getUserName"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getUserName ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getUserName</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getPassword"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getPassword ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getPassword</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getHost"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getHost ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getHost</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getPort"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getPort ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getPort</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getSocket"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getSocket ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getSocket</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getTimeOut"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getTimeOut ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getTimeOut</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getDumpCommandPath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getDumpCommandPath ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getDumpCommandPath</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getDestinationPath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getDestinationPath ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getDestinationPath</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="getRestorePath"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">getRestorePath ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">getRestorePath</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="enableDebug"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">enableDebug ()</h5>
+                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">enableDebug</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setUri"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setUri ()</h5>
+                                    <p class="fun-info">This function is  return string
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setUri</span> ( string $url ) : <span class="return"> String </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setCollection"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setCollection ()</h5>
+                                    <p class="fun-info">This function is  return string
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setCollection</span> ( string $collectin ) : <span class="return"> String </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setAuthenticationDatabase"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setAuthenticationDatabase ()</h5>
+                                    <p class="fun-info">This function is  return string
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setAuthenticationDatabase</span> ( string $auth ) : <span class="return"> String </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="useSingleTransaction"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">useSingleTransaction ()</h5>
+                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">useSingleTransaction</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                           <div id="useSkipLockTables"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">useSkipLockTables ()</h5>
+                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">useSkipLockTables</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="useQuick"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">useQuick ()</h5>
+                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">useQuick</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="doNotUseSkipComments"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">doNotUseSkipComments ()</h5>
+                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">doNotUseSkipComments</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="doNotUseCreateTables"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">doNotUseCreateTables ()</h5>
+                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">doNotUseCreateTables</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="setDefaultCharacterSe"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">setDefaultCharacterSe ()</h5>
+                                    <p class="fun-info">This function is return string.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">setDefaultCharacterSe</span> (  string $charecterSet) : <span class="return"> string </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="useInserts"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">useInserts ()</h5>
+                                    <p class="fun-info">This function is returns <strong>true</strong> on success <strong>false</strong> on failure.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">useInserts</span> ( ) : <span class="return"> bool </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="prepareDumpCommand"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">prepareDumpCommand ()</h5>
+                                    <p class="fun-info">This function is  return string.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">prepareDumpCommand</span> ( string $destinationPath ) : <span class="return"> string </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="prepareRestoreCommand"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">prepareRestoreCommand ()</h5>
+                                    <p class="fun-info">This function is return string.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">prepareRestoreCommand</span> ( string $filePath ) : <span class="return"> string </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="dump"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">dump ()</h5>
+                                    <p class="fun-info">This function is  return string.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">dump</span> ( string $destinationPath ) : <span class="return"> String </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                            <div id="restore"  class="section-block">
+                                <div class="code-block">
+                                    <h5 class="f-name section-title">restore ()</h5>
+                                    <p class="fun-info">This function is  return string.
+                                    </p>
+                                    <div class="block function-name"> 
+                                        <span class="f-name">restore</span> ( string $restorePath ) : <span class="return"> String </span>
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                        </section>
+                        <!--=============== functions-section End ===============-->
+                    </div><!--//content-inner-->
+                </div>
+                <!--================== doc-content  Start =================== -->
+            </div><!--//doc-body-->              
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
+</div><!--//page-wrapper-->
+
+<!--=========== footer Start =========-->
+<footer id="footer" class="footer text-center">
+    <div class="container">
+          <p>@All right reserved <a href="http://codexshaper.com/">codexshaper</a> 2019.</p>
+    </div>
+</footer>
+<!--=========== footer End =========-->
+
+<!-- Main Javascript -->          
+<script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+<script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+<script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                                                                                    
+<script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html> 
+
