@@ -185,9 +185,6 @@ DB_PASSWORD=                                  </code></pre>
                             <div id="step3"  class="section-block">
                               <div class="block">composer require jenssegers/mongodb</div>
                             </div>
-                            <div id="step3"  class="section-block">
-                              <div class="block">php artisan dbm:install</div>
-                            </div>
                             <!-- Passport -->
                             <div id="passport-code"  class="section-block">
                                 <!-- Title -->
@@ -265,6 +262,9 @@ class AuthServiceProvider extends ServiceProvider
     ],
 ],
                                     </code></pre>
+                                </div>
+                                <div id="step3"  class="section-block">
+                                  <div class="block">Run <span>php artisan dbm:install</span> to install resources</div>
                                 </div>
                                 <!-- Title -->
                                 <div class="block">Finally, in your <span>config/dbm.php</span> configuration file, you should change the <span>auth.user.localkey = _id</span></div>
