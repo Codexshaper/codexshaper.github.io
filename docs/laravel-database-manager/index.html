@@ -146,7 +146,13 @@ class AuthServiceProvider extends ServiceProvider
                         <section id="mongodb-setup" class="doc-section">
                             <h3>Setup for <span>MongoDB</span></h3>
                             <div id="step3"  class="section-block">
-                              <div class="block">php artisan dbm:install mongodb</div>
+                              <div class="block">composer require codexshaper/laravel-database-manager</div>
+                            </div>
+                            <div id="step3"  class="section-block">
+                              <div class="block">composer require jenssegers/mongodb</div>
+                            </div>
+                            <div id="step3"  class="section-block">
+                              <div class="block">php artisan dbm:install</div>
                             </div>
                             <!-- Passport -->
                             <div id="passport-code"  class="section-block">
@@ -249,10 +255,16 @@ class AuthServiceProvider extends ServiceProvider
                         </section><!-- End Passport setup -->
                         <section>
                           <h3>Create admin account to access all features</h3>
-                          <div class="block">php artisan dbm:admin 'user' 'action' 'options'</div>
+                          <div id="step3"  class="section-block">
+                            <div class="block">php artisan dbm:admin 'user' 'action' 'options'</div>
+                          </div>
                           <p>Example</p>
-                          <div class="block">php artisan admin@admin.com create --columns=email</div>
-                          <div class="block">In this case <span>email</span> must be exists in your users table and <span>admin@admin.com</span> must be a record</div>
+                          <div id="step3"  class="section-block">
+                            <div class="block">php artisan admin@admin.com create --columns=email</div>
+                          </div>
+                          <div id="step3"  class="section-block">
+                            <div class="block">In this case <span>email</span> must be exists in your users table and <span>admin@admin.com</span> must be a record</div>
+                          </div>
                         </section>
                         <!-- Start CRUD Object -->
                         <section id="crud-object" class="doc-section">
