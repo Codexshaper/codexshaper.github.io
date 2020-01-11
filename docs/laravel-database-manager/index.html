@@ -147,6 +147,40 @@ class AuthServiceProvider extends ServiceProvider
                             <h3>Setup for <span>MongoDB</span></h3>
                             <div id="step3"  class="section-block">
                               <div class="block">composer require codexshaper/laravel-database-manager</div>
+                              <!-- Title -->
+                            </div>
+                            <div id="step3"  class="section-block">
+                              <div class="block">Add <span>mongodb</span> driver in your <span>config/database.php</span></div>
+                            </div>
+                                <!-- Example -->
+                                <div class="code-block" > 
+                                    <pre><code class="language-php">
+'mongodb' => [
+    'driver'   => 'mongodb',
+    'host'     => env('DB_HOST', 'localhost'),
+    'port'     => env('DB_PORT', 27017),
+    'database' => env('DB_DATABASE'),
+    'username' => env('DB_USERNAME'),
+    'password' => env('DB_PASSWORD'),
+    'options'  => [
+        'database' => 'admin', // sets the authentication database required by mongo 3
+    ],
+],
+                                    </code></pre>
+                                </div>
+                              <div id="step3"  class="section-block">
+                              <div class="block">Create database and setup <span>.env</span></div>
+                            </div>
+                                <!-- Example -->
+                                <div class="code-block" > 
+                                    <pre><code class="language-php">
+DB_CONNECTION=mongodb
+DB_HOST=localhost
+DB_PORT=27017
+DB_DATABASE=test
+DB_USERNAME=
+DB_PASSWORD=                                  </code></pre>
+                                </div>
                             </div>
                             <div id="step3"  class="section-block">
                               <div class="block">composer require jenssegers/mongodb</div>
