@@ -38,7 +38,7 @@
                     <div id="doc-nav" class="doc-nav">
                         <nav id="doc-menu" class="nav doc-menu flex-column sticky">
                             <a class="nav-link scrollto" href="#installation-section">Installation</a>
-                            <a class="nav-link scrollto" href="#passport-setup">Setup passport</a>
+                            <a class="nav-link scrollto" href="#mongodb-setup">Setup MongoDB</a>
                             <a class="nav-link scrollto" href="#crud-object">CRUD Object</a>
                             <a class="nav-link scrollto" href="#crud-fields">CRUD Fields</a>
                             <a class="nav-link scrollto" href="#relationship">Relationship</a>
@@ -59,14 +59,11 @@
                             <div id="step3"  class="section-block">
                               <div class="block">composer require codexshaper/laravel-database-manager</div>
                             </div>
-                            <h2 class="section-title">Install &amp; Publish assets</h2>
+                            <h3>Setup for <span>Mysql</span> , <span>Pgsql</span> , <span>Sqlite</span> and <span>Sqlsrv</span></h3>
                             <div id="step3"  class="section-block">
                               <div class="block">php artisan dbm:install</div>
                             </div>
-                        </section><!-- End Installation -->
-                        <!-- Start Passport setup -->
-                        <section id="passport-setup" class="doc-section">
-                            <h2 class="section-title">Setup Passport API authentication</h2>
+                            <!-- Passport -->
                             <div id="passport-code"  class="section-block">
                                 <!-- Title -->
                                 <div class="block">Add <span>Laravel\Passport\HasApiTokens</span> Trait in your <span>App\User</span> Model</div>
@@ -139,6 +136,111 @@ class AuthServiceProvider extends ServiceProvider
     'api' => [
         'driver' => 'passport',
         'provider' => 'users',
+    ],
+],
+                                    </code></pre>
+                                </div>
+                            </div>
+                        </section><!-- End Installation -->
+                        <!-- Start MongoDB setup -->
+                        <section id="mongodb-setup" class="doc-section">
+                            <h3>Setup for <span>MongoDB</span></h3>
+                            <div id="step3"  class="section-block">
+                              <div class="block">php artisan dbm:install mongodb</div>
+                            </div>
+                            <!-- Passport -->
+                            <div id="passport-code"  class="section-block">
+                                <!-- Title -->
+                                <div class="block">Extends <span>User</span> model from <span>CodexShaper\DBM\MongoDB\Auth\User</span> and Add collection name <span>protected $collection = 'custom_users';</span> in your <span>User</span> model if your users table different from <span>users</span></div>
+                                <!-- Example -->
+                                <div class="code-block" > 
+                                    <pre><code class="language-php">
+&lt;?php
+
+namespace App;
+
+use CodexShaper\DBM\MongoDB\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+    use Notifiable;
+
+    protected $collection = 'custom_users';
+}
+                                    </code></pre>
+                                </div>
+                                <!-- Title -->
+                                <div class="block">Next, you should call the <span>Passport::routes</span> method within the <span>boot</span> method of your <span>App\Providers\AuthServiceProvider</span>.</div>
+                                <!-- Example -->
+                                <div class="code-block" > 
+                                    <pre><code class="language-php">
+&lt;?php 
+
+namespace App\Providers;
+
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport;
+
+class AuthServiceProvider extends ServiceProvider
+{
+    /**
+     * The policy mappings for the application.
+     *
+     * @var array
+     */
+    protected $policies = [
+        'App\Model' => 'App\Policies\ModelPolicy',
+    ];
+
+    /**
+     * Register any authentication / authorization services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->registerPolicies();
+
+        Passport::routes();
+    }
+}
+                                    </code></pre>
+                                </div>
+                                <!-- Title -->
+                                <div class="block">Go to <span>config/auth.php</span> configuration file, you should set the <span>driver</span> option of the <span>api</span> authentication guard to <span>passport</span>.</div>
+                                <!-- Example -->
+                                <div class="code-block" > 
+                                    <pre><code class="language-php">
+'guards' => [
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
+    ],
+
+    'api' => [
+        'driver' => 'passport',
+        'provider' => 'users',
+    ],
+],
+                                    </code></pre>
+                                </div>
+                                <!-- Title -->
+                                <div class="block">Finally, in your <span>config/dbm.php</span> configuration file, you should change the <span>auth.user.localkey = _id</span></div>
+                                <!-- Example -->
+                                <div class="code-block" > 
+                                    <pre><code class="language-php">
+'auth'                 => [
+    "token" => [
+        "expiry" => 24 * 60 * 60 * 1000, // 24 hours as a milliseconds
+    ],
+    'user'  => [
+        'model'        => 'App\\User',
+        'table'        => 'users',
+        'local_key'    => '_id', // MongoDB
+        // 'local_key'    => 'id', // Others
+        'display_name' => 'name',
     ],
 ],
                                     </code></pre>
