@@ -247,6 +247,13 @@ class AuthServiceProvider extends ServiceProvider
                                 </div>
                             </div>
                         </section><!-- End Passport setup -->
+                        <section>
+                          <h3>Create admin account to access all features</h3>
+                          <div class="block">php artisan dbm:admin 'user' 'action' 'options'</div>
+                          <p>Example</p>
+                          <div class="block">php artisan admin@admin.com create --columns=email</div>
+                          <div class="block">In this case <span>email</span> must be exists in your users table and <span>admin@admin.com</span> must be a record</div>
+                        </section>
                         <!-- Start CRUD Object -->
                         <section id="crud-object" class="doc-section">
                             <h2 class="section-title">CRUD Object</h2>
@@ -536,7 +543,7 @@ class OptionController extends Controller
                                         <p>Description: Select column name from table (Where) you want to make relation has one?</p>
                                     </div>
                                     <div class="item">
-                                        <h4>Label: Display the</h4>
+                                        <h4>Label: Display the {foreign table}</h4>
                                         <p>Type: dropdown</p>
                                         <p>Required: required</p>
                                         <p>Description: Select column name from table (Where) that will show as a lebel when make CRUD</p>
@@ -581,7 +588,7 @@ class OptionController extends Controller
                                         <p>Description: Select column name from table (Where) you want to make relation has one?</p>
                                     </div>
                                     <div class="item">
-                                        <h4>Label: Display the</h4>
+                                        <h4>Label: Display the {foreign table}</h4>
                                         <p>Type: dropdown</p>
                                         <p>Required: required</p>
                                         <p>Description: Select column name from table (Where) that will show as a lebel when make CRUD</p>
@@ -626,7 +633,7 @@ class OptionController extends Controller
                                         <p>Description: Select column name from table (Where) you want to make relation has one?</p>
                                     </div>
                                     <div class="item">
-                                        <h4>Label: Display the</h4>
+                                        <h4>Label: Display the {foreign table}</h4>
                                         <p>Type: dropdown</p>
                                         <p>Required: required</p>
                                         <p>Description: Select column name from table (Where) that will show as a lebel when make CRUD</p>
@@ -681,7 +688,7 @@ class OptionController extends Controller
                                         <div class="block">Suppose you want to build relation between <span>users</span> and <span>roles</span> from <span>users</span> to <span>roles</span> where pivot/interm table is <span>role_user</span> which has two columns <span>user_id</span> that represents <span>users</span> table and another one is <span>role_id</span> that represents <span>roles</span> table. In this case <span>Parent Pivot Key</span> is <span>role_id</span></div>
                                     </div>
                                     <div class="item">
-                                        <h4>Label: Display the</h4>
+                                        <h4>Label: Display the {foreign table}</h4>
                                         <p>Type: dropdown</p>
                                         <p>Required: required</p>
                                         <p>Description: Select column name from table (Where) that will show as a lebel when make CRUD</p>
