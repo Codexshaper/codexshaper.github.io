@@ -39,6 +39,7 @@
                         <nav id="doc-menu" class="nav doc-menu flex-column sticky">
                             <a class="nav-link scrollto" href="#installation-section">Installation</a>
                             <a class="nav-link scrollto" href="#mongodb-setup">Setup MongoDB</a>
+                            <a class="nav-link scrollto" href="#create-admin">Create Admin</a>
                             <a class="nav-link scrollto" href="#crud-object">CRUD Object</a>
                             <a class="nav-link scrollto" href="#crud-fields">CRUD Fields</a>
                             <a class="nav-link scrollto" href="#relationship">Relationship</a>
@@ -154,6 +155,14 @@ class AuthServiceProvider extends ServiceProvider
                                     </code></pre>
                                 </div>
                             </div>
+                            <iframe 
+                              style="display: block;margin: 0px auto;margin-bottom: 30px;" 
+                              width="560" 
+                              height="315" 
+                              src="https://www.youtube.com/embed/yAO8YlgeG-0" 
+                              frameborder="0" 
+                              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                              allowfullscreen></iframe>
                         </section><!-- End Installation -->
                         <!-- Start MongoDB setup -->
                         <section id="mongodb-setup" class="doc-section">
@@ -194,7 +203,6 @@ DB_DATABASE=test
 DB_USERNAME=
 DB_PASSWORD=                      </code></pre>
                               </div>
-                            </div>
                             <div id="step3"  class="section-block">
                               <div class="block">composer require jenssegers/mongodb</div>
                             </div>
@@ -299,9 +307,17 @@ class AuthServiceProvider extends ServiceProvider
                                     </code></pre>
                                 </div>
                             </div>
+                            <iframe 
+                              style="display: block;margin: 0px auto;margin-bottom: 30px;" 
+                              width="560" 
+                              height="315" 
+                              src="https://www.youtube.com/embed/c6-6btsE0I4" 
+                              frameborder="0" 
+                              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                              allowfullscreen></iframe>
                         </section><!-- End Passport setup -->
-                        <section>
-                          <h3>Create admin account to access all features</h3>
+                        <section id="create-admin" class="doc-section">
+                          <h2 class="section-title">Create admin account to access all features</h3>
                           <div id="step3"  class="section-block">
                             <div class="block">php artisan dbm:admin 'user' 'action' 'options'</div>
                           </div>
@@ -542,7 +558,20 @@ class OptionController extends Controller
                                     <div class="block">Add <span>localKey</span> for escape current record when validate unique field</div>
                                     <!-- Example -->
                                     <div class="code-block" > 
-                                        <pre><code class="language-javascript">
+                                      <pre><code class="language-javascript">
+// For all drivers except mongodb
+{
+    "validation": {
+        "create": {
+            "rules": "required|unique:users"
+        },
+        "update": {
+            "rules": "required|unique:users,email",
+            "localKey": "id"
+        }
+    }
+}
+// Only for mongodb
 {
     "validation": {
         "create": {
@@ -550,7 +579,7 @@ class OptionController extends Controller
         },
         "update": {
             "rules": "required|unique:users",
-            "localKey" : "id"
+            "localKey": "email"
         }
     }
 }
