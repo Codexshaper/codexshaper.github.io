@@ -256,6 +256,19 @@ select {
   position: relative;
 }
 
+.menu-items {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.menu-items li {
+  margin-right: 20px;
+}
+
+.menu-items li a {
+  font-size: 30px;
+}
+
 .branding {
   text-transform: uppercase;
   margin-bottom: 10px;
