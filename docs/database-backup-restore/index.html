@@ -34,7 +34,7 @@
                 <div class="doc-body row">
 
                 <!--=============== slidebar-menu  Start =============== -->
-                <div class="doc-sidebar col-md-3">
+                <div class="doc-sidebar col-md-3 align-self-start sticky-top">
                     <div id="doc-nav" class="doc-nav">
                         <nav id="doc-menu" class="nav doc-menu flex-column sticky">
                             <a class="nav-link scrollto" href="#installation-section">Installation</a>
@@ -66,13 +66,63 @@
                             <a class="nav-link scrollto" href="#common-section">
                                 Common setup
                             </a>
-                            <a class="nav-link scrollto" href="#functions-section">
-                                Functions
+                            <a  class="nav-link scrollto" href="#mysql-methods-section">
+                                Mysql methods
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useSingleTransaction">useSingleTransaction</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useSkipLockTables">useSkipLockTables</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useQuick">useQuick</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#doNotUseSkipComments">doNotUseSkipComments</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#doNotCreateTables">doNotCreateTables</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setDefaultCharacterSet">setDefaultCharacterSet</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getMysqlDumpCommand">getMysqlDumpCommand</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getMysqlRestoreCommand">getMysqlRestoreCommand</a>
+                                </nav><!--//nav-->
+                            </a>
+
+                            <a  class="nav-link scrollto" href="#mysql-methods-section">
+                                Pgsql methods
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#useInserts">useInserts</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#doNotCreateTables">doNotCreateTables</a>
+                                </nav><!--//nav-->
+                            </a>
+
+                            <a  class="nav-link scrollto" href="#mongo-methods-section">
+                                MongoDB methods
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setUri">setUri</a>
+                                </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setCollection">setCollection</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#setAuthenticationDatabase">setAuthenticationDatabase</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <a class="nav-link scrollto" href="#methods-section">
+                                Common methods
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#setDbName">setDbName</a>
                                 </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#setUserName">setDbName</a>
+                                    <a class="nav-link scrollto" href="#setUserName">setUserName</a>
                                 </nav><!--//nav--> 
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#setPassword">setPassword</a>
@@ -118,16 +168,28 @@
                                     <a class="nav-link scrollto" href="#useCompress">useCompress</a>
                                 </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#getDbName">getDbName</a>
-                                </nav><!--//nav--> 
+                                    <a class="nav-link scrollto" href="#enableDebug">enableDebug</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#dump">dump</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#restore">restore</a>
+                                </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#getDbName">getDbName</a>
                                 </nav><!--//nav--> 
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getUserName">getUserName</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#getPassword">getPassword</a>
+                                </nav><!--//nav-->  
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#getHost">getHost</a>
                                 </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#getHost">getPort</a>
+                                    <a class="nav-link scrollto" href="#getPort">getPort</a>
                                 </nav><!--//nav--> 
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#getSocket">getSocket</a>
@@ -136,7 +198,7 @@
                                     <a class="nav-link scrollto" href="#getTimeOut">getTimeOut</a>
                                 </nav><!--//nav--> 
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#getDumpCommandPath">getDumpCommandPath</a>
+                                    <a class="nav-link scrollto" href="#getCommandBinaryPath">getCommandBinaryPath</a>
                                 </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
                                     <a class="nav-link scrollto" href="#getDestinationPath">getDestinationPath</a>
@@ -145,55 +207,16 @@
                                     <a class="nav-link scrollto" href="#getRestorePath">getRestorePath</a>
                                 </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#enableDebug">enableDebug</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#setUri">setUri</a>
-                                </nav><!--//nav--> 
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#setCollection">setCollection</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#setAuthenticationDatabase">setAuthenticationDatabase</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#useSingleTransaction">useSingleTransaction</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#useSkipLockTables">useSkipLockTables</a>
-                                </nav><!--//nav--> 
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#useQuick">useQuick</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#doNotUseSkipComments">doNotUseSkipComments</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#doNotUseCreateTables">doNotUseCreateTables</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#setDefaultCharacterSe">setDefaultCharacterSe</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#useInserts">useInserts</a>
-                                </nav><!--//nav-->
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#prepareDumpCommand">prepareDumpCommand</a>
+                                    <a class="nav-link scrollto" href="#getDumpCommand">getDumpCommand</a>
                                 </nav><!--//nav-->
                                  <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#prepareRestoreCommand">prepareRestoreCommand</a>
-                                </nav><!--//nav-->
-
-
-
-
-
-
-                                <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#dump">dump</a>
+                                    <a class="nav-link scrollto" href="#getRestoreCommand">getRestoreCommand</a>
                                 </nav><!--//nav-->
                                 <nav class="doc-sub-menu nav flex-column">
-                                    <a class="nav-link scrollto" href="#restore">restore</a>
+                                    <a class="nav-link scrollto" href="#cs">comming soon</a>
+                                </nav><!--//nav-->
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#cs">comming soon</a>
                                 </nav><!--//nav-->
 
                             </a>
@@ -796,395 +819,1573 @@ $dumper->restore();
                         </section>
                         <!--=============== common-section End ===============-->
 
-                        <!--=============== functions-section End ===============-->                     
-                        <section id="functions-section" class="doc-section">
+                        <section id="mysql-methods-section" class="doc-section">
+                            <h3>Mysql Methods</h3>
+                            <div id="useSingleTransaction"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">useSingleTransaction : only for mysql</h5>
+                                        <p class="fun-info"> useSingleTransaction - use single transaction</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">useSingleTransaction</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method enable the single transaction and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->useSingleTransaction();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="useSkipLockTables"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">useSkipLockTables : only for mysql</h5>
+                                        <p class="fun-info"> useSkipLockTables - skip lock tables</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">useSkipLockTables</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method enable the skip lock tables and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->useSkipLockTables();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="useQuick"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">useQuick : only for mysql</h5>
+                                        <p class="fun-info"> useQuick - use quick</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">useQuick</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method enable the quick transaction and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->useQuick();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="doNotUseSkipComments"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">doNotUseSkipComments : only for mysql</h5>
+                                        <p class="fun-info"> doNotUseSkipComments - don not skip comments</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">doNotUseSkipComments</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method disable the skip comments and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->doNotUseSkipComments();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="doNotCreateTables"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">doNotCreateTables : only for mysql and pgsql</h5>
+                                        <p class="fun-info"> doNotCreateTables - don not create tables</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">doNotCreateTables</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method disable the create table and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->doNotCreateTables();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="setDefaultCharacterSet"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setDefaultCharacterSet : only for mysql</h5>
+                                        <p class="fun-info"> setDefaultCharacterSet - Set default charecter set</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setDefaultCharacterSet</span>  ( string $charecterSet) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the charecterSet and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">charecterSet</h3>
+                                            <p class="parameter-description">Accept charecterSet as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setDefaultCharacterSet("utf8");
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getMysqlDumpCommand"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getDumpCommand : only for mysql</h5>
+                                        <p class="fun-info"> getDumpCommand - get dump command for mysql</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getDumpCommand</span>  ( string $credentialFile, $destinationPath) : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the dump command for mysql</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">credentialFile</h3>
+                                            <p class="parameter-description">Optional. Accept credentialFile as string. The default value is empty string</p>
+                                            <h3 class="parameter-title">destinationPath</h3>
+                                            <p class="parameter-description">Optional. Accept destinationPath as string. The default value is empty string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getDumpCommand('credentials.txt', '/path/to/destination/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getMysqlRestoreCommand"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getRestoreCommand : only for mysql</h5>
+                                        <p class="fun-info"> getRestoreCommand - get restore command for mysql</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getRestoreCommand</span>  ( string $credentialFile, $filePath) : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the restore command for mysql</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">credentialFile</h3>
+                                            <p class="parameter-description">Optional. Accept credentialFile as string. The default value is empty string</p>
+                                            <h3 class="parameter-title">filePath</h3>
+                                            <p class="parameter-description">Optional. Accept filePath as string. The default value is empty string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getRestoreCommand('credentials.txt', '/path/to/rstore/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                        </section>
+                        <!--=============== mysql-methods-section End ===============-->
+                        <section id="pgsql-methods-section" class="doc-section">
+                            <p>Pgsql methods</p>
+                            
+                            <div id="useInserts"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">useInserts : only for pgsql</h5>
+                                        <p class="fun-info"> useInserts - use inserts</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">useInserts</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method enble the inserts and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\PgsqlDumper::create()
+  ->useInserts();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+                        </section>
+                        <!--=============== pgsql-methods-section End ===============-->
+                        <section id="mongo-methods-section" class="doc-section">
+                            <p>MongoDB methods</p>
+
+                            <div id="setUri"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setUri : only for MongoDB</h5>
+                                        <p class="fun-info"> setUri - set uri</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setUri</span>  ( string $uri) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database uri and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">uri</h3>
+                                            <p class="parameter-description">Uri as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MongoDumper::create()
+  ->setUri("uri");
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="setCollection"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setCollection : only for MongoDB</h5>
+                                        <p class="fun-info"> setCollection - set collection</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setCollection</span>  ( string $collection) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database collection and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">collection</h3>
+                                            <p class="parameter-description">Collection as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MongoDumper::create()
+  ->setCollection("test1");
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="setAuthenticationDatabase"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setAuthenticationDatabase : only for MongoDB</h5>
+                                        <p class="fun-info"> setAuthenticationDatabase - set authentication database</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setAuthenticationDatabase</span>  ( string $authenticationDatabase) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the authentication database name and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">authenticationDatabase</h3>
+                                            <p class="parameter-description">Authentication database name as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MongoDumper::create()
+  ->setAuthenticationDatabase("admin");
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                        </section>
+                        <!--=============== mongo-methods-section End ===============-->
+
+                        <!--=============== methods-section End ===============-->                     
+                        <section id="methods-section" class="doc-section">
+                            <h3>Common Methods</h3>
                             <div id="setDbName"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title ">setDbName ()</h5>
-                                    <p class="fun-info"> This function is return string</p>
-                                    <div class="block function-name"> 
-                                           <span class="f-name">setDbName</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setDbName</h5>
+                                        <p class="fun-info"> setDbName - Set database name</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setDbName</span>  ( string $name) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database name and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">name</h3>
+                                            <p class="parameter-description">Database as a string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setDbName("dbname");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setUserName"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title ">setUserName ()</h5>
-                                    <p class="fun-info"> This function is return string</p>
-                                    <div class="block function-name"> 
-                                           <span class="f-name">setUserName</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setUserName</h5>
+                                        <p class="fun-info"> setUserName - Set database username</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setUserName</span>  ( string $username) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database username and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">username</h3>
+                                            <p class="parameter-description">Username for the selected database</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setUserName("root");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setPassword"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setPassword ()</h5>
-                                    <p class="fun-info"> This function is return string</p>
-                                    <div class="block function-name"> 
-                                           <span class="f-name">setPassword</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setPassword</h5>
+                                        <p class="fun-info"> setPassword - Set database password</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setPassword</span>  ( string $password) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database password and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">password</h3>
+                                            <p class="parameter-description">Password for the selected database</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setPassword("password");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setHost"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setHost ()</h5>
-                                    <p class="fun-info"> This function is return string</p>
-                                    <div class="block function-name"> 
-                                           <span class="f-name">setHost</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setHost</h5>
+                                        <p class="fun-info"> setHost - Set database host</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setHost</span>  ( string $host) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database host and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">host</h3>
+                                            <p class="parameter-description">Host for the selected database</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setHost("localhost");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
 
                             <div id="setPort"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setPort ()</h5>
-                                    <p class="fun-info">This function returns  <strong>true</strong> if the variable is of type integer, otherwise it returns <strong>false</strong>.</p>
-                                    <div class="block function-name"> 
-                                           <span class="f-name">setPort</span>  ( int $int) : <span class="return"> int</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setPort</h5>
+                                        <p class="fun-info"> setPort - Set database port</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setPort</span>  ( string $port) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database port and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">port</h3>
+                                            <p class="parameter-description">Port for the selected database</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setPort("3306");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setSocket"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setSocket ()</h5>
-                                    <p class="fun-info">This function is return  string .</p>
-                                    <div class="block function-name"> 
-                                           <span class="f-name">setSocket</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setSocket</h5>
+                                        <p class="fun-info"> setSocket - Set database socket</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setSocket</span>  ( string $socket) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database socket and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">socket</h3>
+                                            <p class="parameter-description">Socket for the selected database</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setSocket("socket");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setTimeOut"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setTimeOut ()</h5>
-                                    <p class="fun-info">This function returns  <strong>true</strong> if the variable is of type integer, otherwise it returns <strong>false</strong>.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setTimeOut</span>  ( int $int) : <span class="return"> int</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setTimeOut</h5>
+                                        <p class="fun-info"> setTimeOut - Set timeout</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setTimeOut</span>  ( string $timeout) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the database timeout and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">timeout</h3>
+                                            <p class="parameter-description">Timeout in milliseconds</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setTimeOut("milliseconds");
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setTables"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setTables ()</h5>
-                                    <p class="fun-info">This function returns  <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setTables</span>  ( string $str |array $options) : <span class="return"> void</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setTables</h5>
+                                        <p class="fun-info"> setTables - Set include tables</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setTables</span>  ( string|array $tables) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method include tables to download only provided tables and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">tables</h3>
+                                            <p class="parameter-description">Accept tables string or array</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setTables(['test1', 'test2', 'test3']);
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setIgnoreTables"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setIgnoreTables ()</h5>
-                                    <p class="fun-info">This function returns  <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setIgnoreTables</span>  ( string $str |array $options) : <span class="return"> void</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setIgnoreTables</h5>
+                                        <p class="fun-info"> setIgnoreTables - Set exclude tables</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setIgnoreTables</span>  ( string|array $tables) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method ignore provided tables to download and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">tables</h3>
+                                            <p class="parameter-description">Accept tables string or array</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setIgnoreTables(['test1', 'test2', 'test3']);
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setCommandBinaryPath"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setCommandBinaryPath ()</h5>
-                                    <p class="fun-info">This function is  return string</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setCommandBinaryPath</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setCommandBinaryPath</h5>
+                                        <p class="fun-info"> setCommandBinaryPath - Set binary path to dump or restore</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setCommandBinaryPath</span>  ( string $path) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method sets the binary path for dump or restore command and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">path</h3>
+                                            <p class="parameter-description">Accept path as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setCommandBinaryPath('/path/to/mysql/bin');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setDestinationPath"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setDestinationPath ()</h5>
-                                    <p class="fun-info">This function is  return string</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setDestinationPath</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setDestinationPath</h5>
+                                        <p class="fun-info"> setDestinationPath - Set the destination path</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setDestinationPath</span>  ( string $path) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the destination path for dumper to store and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">path</h3>
+                                            <p class="parameter-description">Accept path as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setDestinationPath('/path/to/mysql/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
-                           <div id="setRestorePath"  class="section-block">
+
+                            <div id="setRestorePath"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setRestorePath ()</h5>
-                                    <p class="fun-info">This function is  return string</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setRestorePath</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setRestorePath</h5>
+                                        <p class="fun-info"> setRestorePath - Set the retore path</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setRestorePath</span>  ( string $path) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the retore path for dumper to restore and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">path</h3>
+                                            <p class="parameter-description">Accept path as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setRestorePath('/path/to/mysql/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setCompressBinaryPath"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setCompressBinaryPath ()</h5>
-                                    <p class="fun-info">This function is  return binary_string</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setCompressBinaryPath</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setCompressBinaryPath</h5>
+                                        <p class="fun-info"> setCompressBinaryPath - Set the compressor command binary path</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setCompressBinaryPath</span>  ( string $path) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the compressor command binary path and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">path</h3>
+                                            <p class="parameter-description">Accept path as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setCompressBinaryPath('/path/to/bin');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setCompressCommand"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setCompressCommand ()</h5>
-                                    <p class="fun-info">This function is  return string</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setCompressCommand</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setCompressCommand</h5>
+                                        <p class="fun-info"> setCompressCommand - Set the compress command</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setCompressCommand</span>  ( string $command) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the compress command and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">command</h3>
+                                            <p class="parameter-description">Accept command as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setCompressCommand('gzip');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="setCompressExtension"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">setCompressExtension ()</h5>
-                                    <p class="fun-info">This function is  return string</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setCompressExtension</span>  ( string $str) : <span class="return"> string</span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">setCompressExtension</h5>
+                                        <p class="fun-info"> setCompressExtension - Set the compress extension</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">setCompressExtension</span>  ( string $extension) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the compress extension and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">extension</h3>
+                                            <p class="parameter-description">Accept extension as string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->setCompressExtension('.gz');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="useCompress"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">useCompress ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">useCompress</span>  ( string $command,string $extension, string $binary_path) : <span class="return"> bool </span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">useCompress</h5>
+                                        <p class="fun-info"> useCompress - Set the compress command, extension, binary path</p>
                                     </div>
-                                </div><!--//code-block-->
-                            </div> 
-                            <div id="getDbName"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getDbName ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getDbName</span> ( ) : <span class="return"> bool </span>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">useCompress</span>  ( string $command, string $extension, string $binary_path) : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set the compress command, extension, and binary path in single call and return the current object instance</p>
                                     </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getUserName"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getUserName ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getUserName</span> ( ) : <span class="return"> bool </span>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">command</h3>
+                                            <p class="parameter-description">Optional. Accept command as string. The default value is gzip</p>
+                                            <h3 class="parameter-title">extension</h3>
+                                            <p class="parameter-description">Optional. Accept extension as string. The default value is .gz</p>
+                                            <h3 class="parameter-title">binary_path</h3>
+                                            <p class="parameter-description">Optional. Accept binary_path as string. The default value is empty string.</p>
+                                        </div>
                                     </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getPassword"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getPassword ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getPassword</span> ( ) : <span class="return"> bool </span>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
                                     </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getHost"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getHost ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getHost</span> ( ) : <span class="return"> bool </span>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->useCompress('gzip', '.gz', '/path/to/bin');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
-                            <div id="getPort"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getPort ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getPort</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getSocket"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getSocket ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getSocket</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getTimeOut"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getTimeOut ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getTimeOut</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getDumpCommandPath"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getDumpCommandPath ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getDumpCommandPath</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getDestinationPath"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getDestinationPath ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getDestinationPath</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="getRestorePath"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">getRestorePath ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">getRestorePath</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
+
                             <div id="enableDebug"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">enableDebug ()</h5>
-                                    <p class="fun-info">This function is  returns <strong>true</strong> on success <strong>false</strong> on failure.</p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">enableDebug</span> ( ) : <span class="return"> bool </span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">enableDebug</h5>
+                                        <p class="fun-info"> enableDebug - Set the enable debug</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">enableDebug</span>  () : <span class="return"> $this</span>
+                                        </div>
+                                        <p class="mt-3">This method set  the compress extension and return the current object instance</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the current object</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->enableDebug();
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
-                            <div id="setUri"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">setUri ()</h5>
-                                    <p class="fun-info">This function is  return string
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setUri</span> ( string $url ) : <span class="return"> String </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="setCollection"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">setCollection ()</h5>
-                                    <p class="fun-info">This function is  return string
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setCollection</span> ( string $collectin ) : <span class="return"> String </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="setAuthenticationDatabase"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">setAuthenticationDatabase ()</h5>
-                                    <p class="fun-info">This function is  return string
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setAuthenticationDatabase</span> ( string $auth ) : <span class="return"> String </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="useSingleTransaction"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">useSingleTransaction ()</h5>
-                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">useSingleTransaction</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                           <div id="useSkipLockTables"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">useSkipLockTables ()</h5>
-                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">useSkipLockTables</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="useQuick"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">useQuick ()</h5>
-                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">useQuick</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="doNotUseSkipComments"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">doNotUseSkipComments ()</h5>
-                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">doNotUseSkipComments</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="doNotUseCreateTables"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">doNotUseCreateTables ()</h5>
-                                    <p class="fun-info">This function is returns  <strong>true</strong> on success <strong>false</strong> on failure.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">doNotUseCreateTables</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="setDefaultCharacterSe"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">setDefaultCharacterSe ()</h5>
-                                    <p class="fun-info">This function is return string.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">setDefaultCharacterSe</span> (  string $charecterSet) : <span class="return"> string </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="useInserts"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">useInserts ()</h5>
-                                    <p class="fun-info">This function is returns <strong>true</strong> on success <strong>false</strong> on failure.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">useInserts</span> ( ) : <span class="return"> bool </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="prepareDumpCommand"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">prepareDumpCommand ()</h5>
-                                    <p class="fun-info">This function is  return string.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">prepareDumpCommand</span> ( string $destinationPath ) : <span class="return"> string </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
-                            <div id="prepareRestoreCommand"  class="section-block">
-                                <div class="code-block">
-                                    <h5 class="f-name section-title">prepareRestoreCommand ()</h5>
-                                    <p class="fun-info">This function is return string.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">prepareRestoreCommand</span> ( string $filePath ) : <span class="return"> string </span>
-                                    </div>
-                                </div><!--//code-block-->
-                            </div>
+
                             <div id="dump"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">dump ()</h5>
-                                    <p class="fun-info">This function is  return string.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">dump</span> ( string $destinationPath ) : <span class="return"> String </span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">dump</h5>
+                                        <p class="fun-info"> dump - get dump command</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">dump</span>  ( string $destinationPath) : <span class="return"> void</span>
+                                        </div>
+                                        <p class="mt-3">This method dump sql data and return nothing</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">destinationPath</h3>
+                                            <p class="parameter-description">Optional. Accept destinationPath as string. Default is empty string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return nothing</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->dump('/path/to/destination/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
+
                             <div id="restore"  class="section-block">
                                 <div class="code-block">
-                                    <h5 class="f-name section-title">restore ()</h5>
-                                    <p class="fun-info">This function is  return string.
-                                    </p>
-                                    <div class="block function-name"> 
-                                        <span class="f-name">restore</span> ( string $restorePath ) : <span class="return"> String </span>
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">restore</h5>
+                                        <p class="fun-info"> restore - get restore command</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">restore</span>  ( string $restorePath) : <span class="return"> void</span>
+                                        </div>
+                                        <p class="mt-3">This method restore sql data and return nothing</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">restorePath</h3>
+                                            <p class="parameter-description">Optional. Accept restorePath as string. Default is empty string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return nothing</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->restore('/path/to/restore/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getDbName"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getDbName</h5>
+                                        <p class="fun-info"> getDbName - get database name</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getDbName</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the database name</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the database name</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getDbName();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getUserName"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getUserName</h5>
+                                        <p class="fun-info"> getUserName - get database username</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getUserName</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the database username</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the database username</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getUserName();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getPassword"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getPassword</h5>
+                                        <p class="fun-info"> getPassword - get database password</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getPassword</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the database password</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the database password</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getPassword();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getHost"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getHost</h5>
+                                        <p class="fun-info"> getHost - get host name</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getHost</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the host name</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the host name</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getHost();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getPort"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getPort</h5>
+                                        <p class="fun-info"> getPort - get port</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getPort</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the port</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the port</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getPort();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getSocket"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getSocket</h5>
+                                        <p class="fun-info"> getSocket - get socket</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getSocket</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the socket</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the socket</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getSocket();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getTimeOut"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getTimeOut</h5>
+                                        <p class="fun-info"> getTimeOut - get timeout</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getTimeOut</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the timeout</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the timeout</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getTimeOut();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getCommandBinaryPath"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getCommandBinaryPath</h5>
+                                        <p class="fun-info"> getCommandBinaryPath - get command binary path</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getCommandBinaryPath</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the command binary path</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the command binary path</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getCommandBinaryPath();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getDestinationPath"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getDestinationPath</h5>
+                                        <p class="fun-info"> getDestinationPath - get destination path</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getDestinationPath</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the destination path</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the destination path</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getDestinationPath();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getRestorePath"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getRestorePath</h5>
+                                        <p class="fun-info"> getRestorePath - get restore path</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getRestorePath</span>  () : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the restore path</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <p class="mt-3">This method doesn't support any parameter</p>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the restore path</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\MysqlDumper::create()
+  ->getRestorePath();
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getDumpCommand"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getDumpCommand</h5>
+                                        <p class="fun-info"> getDumpCommand - get dump command</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getDumpCommand</span>  ( string $destinationPath) : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the dump command</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">destinationPath</h3>
+                                            <p class="parameter-description">Optional. Accept destinationPath as string. Default is empty string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the dump command</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->getDumpCommand('/path/to/destination/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
+                                    </div>
+                                </div><!--//code-block-->
+                            </div>
+
+                            <div id="getRestoreCommand"  class="section-block">
+                                <div class="code-block">
+                                    <div class="method-title">
+                                        <h5 class="f-name section-title ">getRestoreCommand</h5>
+                                        <p class="fun-info"> getRestoreCommand - get dump command</p>
+                                    </div>
+                                    <div class="method-description">
+                                        <h5 class="method-title section-title">Description</h5>
+                                        <div class="block method-name"> 
+                                               <span class="f-name">getRestoreCommand</span>  ( string $filePath) : <span class="return"> string</span>
+                                        </div>
+                                        <p class="mt-3">This method return the dump command</p>
+                                    </div>
+                                    <div class="method-parameters">
+                                        <h5 class="method-title section-title">Parameters</h5>
+                                        <div class="method-parameter mt-3">
+                                            <h3 class="parameter-title">filePath</h3>
+                                            <p class="parameter-description">Optional. Accept filePath as string. Default is empty string</p>
+                                        </div>
+                                    </div>
+                                    <div class="method-return">
+                                        <h5 class="method-title section-title">Return</h5>
+                                        <p class="return-description mt-3">This method return the dump command</p>
+                                    </div>
+                                    <div class="method-example">
+                                        <h5 class="method-title section-title">Examples</h5>
+                                        <div class="code-block">
+                                            <pre><code class="language-php">
+// Same for other driver
+\CodexShaper\Dumper\Drivers\SqliteDumper::create()
+  ->getRestoreCommand('/path/to/restore/dump.sql');
+                                            </code></pre>
+                                        </div><!--//code-block-->
                                     </div>
                                 </div><!--//code-block-->
                             </div>
 
                         </section>
-                        <!--=============== functions-section End ===============-->
+                        <!--=============== methods-section End ===============-->
                     </div><!--//content-inner-->
                 </div>
                 <!--================== doc-content  Start =================== -->

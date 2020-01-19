@@ -1141,19 +1141,30 @@ select {
 .f-name{
    color: #ff0000;
 }
+.method-title {
+  color: #793862
+}
+.parameter-title {
+  color: #369;
+  font-size: 1rem; 
+  font-weight: 700;
+}
+.parameter-description {
+  padding-left: 30px;
+}
 span.return {
     color: #dc3545;
 }
 
-#functions-section .section-block {
+#methods-section .section-block {
    padding-bottom: 0px;
    padding-top: 10px;
 }
 
-#functions-section .section-title{
+#methods-section .section-title{
   font-size: 15px;
 }
-#functions-section .fun-info{
+#methods-section .fun-info{
   font-size: 14px;
   padding-top: 10px;
 }
