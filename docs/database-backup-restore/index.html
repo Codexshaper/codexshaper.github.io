@@ -63,8 +63,8 @@
                                     <a class="nav-link scrollto" href="#mongodb_restore">Restore </a>
                                 </nav><!--//nav-->
                             </a>
-                            <a class="nav-link scrollto" href="#common-section">
-                                Common setup
+                            <a class="nav-link scrollto" href="#dump-binary-path-section">
+                                setDumpBinaryPath
                             </a>
                             <a  class="nav-link scrollto" href="#mysql-methods-section">
                                 Mysql methods
@@ -255,37 +255,25 @@ $options    = [
     'password'        => 'DATABASE_PASSWORD',
     'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/mysql/dump
 ];
-
-?&gt;
                                    </code></pre>
                                 </div><!--//code-block-->
                                  <div class="code-block">
                                     <h6>Use constructor with options</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\MysqlDumper($options);
 $dumper->dump();
-
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Use create method</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\MysqlDumper::create($options)->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Dynamically</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MysqlDumper::create()
   ->setHost($host)
   ->setPort($port)
@@ -294,21 +282,16 @@ $dumper->dump();
   ->setPassword($password)
   ->setDestinationPath($destinationPath)
   ->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Archive</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\MysqlDumper::create($options)
   ->useCompress("gzip") // This command apply gzip to zip
   ->dump();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -322,26 +305,20 @@ $dumper->dump();
                                 <div class="block"> Mustbe installed <span>mysql</span> in your system</div> 
                                  <div class="code-block">
                                     <h6>Restore from without archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\MysqlDumper($options);
 $dumper->setRestorePath($restorePath); // /path/to/backups/mysql/dump.sql 
 $dumper->restore();
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Restore from archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MysqlDumper::create($options)
   ->useCompress("gunzip") // this command unzip the file
   ->setRestorePath($restorePath) // /path/to/backups/mysql/dump.sql.gz
   ->restore();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -370,36 +347,28 @@ $options    = [
     'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/pgsql/dump
 ];
 
-?&gt;
+
                                    </code></pre>
                                 </div><!--//code-block-->
                                  <div class="code-block">
                                     <h6>Use constructor with options</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\PgsqlDumper($options);
 $dumper->dump();
 
-?&gt;
+
                                     </code></pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Use create method</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\PgsqlDumper::create($options)->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Dynamically</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\PgsqlDumper::create()
   ->setHost($host)
   ->setPort($port)
@@ -409,20 +378,16 @@ $dumper->dump();
   ->setDestinationPath($destinationPath)
   ->dump();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\PgsqlDumper::create($options)
   ->useCompress("gzip") // This command apply gzip to zip
   ->dump();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -436,26 +401,20 @@ $dumper->dump();
                                 <div class="block"> Mustbe installed <span>psql</span> in your system</div>
                                 <div class="code-block">
                                     <h6>Restore from without archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\PgsqlDumper($options);
 $dumper->setRestorePath($restorePath); // /path/to/backups/pgsql/dump.sql 
 $dumper->restore();
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
                                 <div class="code-block">
                                     <h6>Restore from archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\PgsqlDumper::create($options)
   ->useCompress("gunzip") // this command unzip the file
   ->setRestorePath($restorePath) // /path/to/backups/pgsql/dump.sql.gz
   ->restore();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -474,64 +433,47 @@ $dumper->restore();
                                 <div class="block"> Mustbe installed <span>sqlite3</span> in your system</div>
                                 <div class="code-block" > 
                                  <pre><code class="language-php">
-&lt;?php 
-
 $options    = [
     'dbName'          => 'DATABASE_PATH', // /path/to/database.sqlite
     'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/sqlite/dump.sql
 ];
-
-?&gt;
                                    </code></pre>
                                 </div><!--//code-block-->
                                  <div class="code-block">
                                     <h6>Use constructor with options</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\SqliteDumper($options);
 $dumper->dump();
 
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Use create method</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\SqliteDumper::create($options)->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Dynamically</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\SqliteDumper::create()
   ->setDbName($database)
   ->setDestinationPath($destinationPath)
   ->dump();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Archive</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\SqliteDumper::create()
   ->setDbName($database)
   ->setDestinationPath($destinationPath)
   ->useCompress("gzip") // This command apply gzip to zip
   ->dump();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -544,51 +486,39 @@ $dumper->dump();
                                 <h3 class="block-title">Restore</h3>
                                 <div class="block"> Mustbe installed <span>sqlite3</span> in your system</div>
                                 <div class="code-block">
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $options    = [
     'dbName'          => 'DATABASE_PATH', // /path/to/database.sqlite
     'restorePath' => 'RESTORE_PATH_WITH_FILE_NAME', // /path/to/backups/sqlite/dump.sql
 ];
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
 
                                 <div class="code-block">
                                     <h6>Use Construct</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\SqliteDumper($options);
 $dumper->restore();
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
 
                                 <div class="code-block">
                                     <h6>Use Dynamic</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $dumper = new \CodexShaper\Dumper\Drivers\SqliteDumper($options);
 $dumper->restore();
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->              
 
                                <div class="code-block">
                                     <h6>Restore from archive</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\SqliteDumper::create()
   ->setDbName($database)
   ->setRestorePath($restorePath)
   ->useCompress("gunzip") // This command apply gzip to zip
   ->restore();
 
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -606,8 +536,6 @@ $dumper->restore();
                                 <div class="block"> Mustbe installed <span>mongodump</span> in your system</div>
                                 <div class="code-block" > 
                                  <pre><code class="language-php">
-&lt;?php 
-
 $options    = [
     'host'            => 'HOST',
     'port'            => 'PORT',
@@ -616,37 +544,25 @@ $options    = [
     'password'        => 'DATABASE_PASSWORD',
     'destinationPath' => 'STORAGE_PATH_WITH_FILE_NAME', // /path/to/backups/mongodb/dump
 ];
-
-?&gt;
                                    </code></pre>
                                 </div><!--//code-block-->
                                  <div class="code-block">
                                     <h6>Use constructor with options</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php">  
 $dumper = new \CodexShaper\Dumper\Drivers\MongoDumper($options);
 $dumper->dump();
-
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Use create method</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php">  
 \CodexShaper\Dumper\Drivers\MongoDumper::create($options)->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Dynamically</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MongoDumper::create()
   ->setHost($host)
   ->setPort($port)
@@ -655,78 +571,56 @@ $dumper->dump();
   ->setPassword($password)
   ->setDestinationPath($destinationPath)
   ->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MongoDumper::create($options)
   ->useCompress("gzip") // This command will add --archive with --gzip
   ->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block--> 
                                 <div class="code-block">
                                      <h3 class="block-title">Use URI</h3>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 $options = [
     'uri'             => $uri,
     "destinationPath" => $destinationPath, // /path/to/backups/mongodb/dump 
 ];
 $dumper = new \CodexShaper\Dumper\Drivers\MongoDumper($options);
 $dumper->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                 <div class="code-block">
                                      <h6>OR</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
   ->setDestinationPath($destinationPath)
   ->dump()
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                 <div class="code-block">
                                      <h6>Dynamic</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\MongoDumper::create()
   ->setUri($uri)
   ->setDestinationPath($destinationPath)
   ->dump()
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                 <div class="code-block">
                                      <h6>Compress</h6>
                                     <pre><code class="language-php">
-&lt;?php  
-
 \CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
   ->useCompress("gzip")
   ->setDestinationPath($destinationPath)
   ->dump();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -745,54 +639,39 @@ $dumper->dump();
 
                                  <div class="code-block">
                                     <h6>Restore from without archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php">  
 $dumper = new \CodexShaper\Dumper\Drivers\MongoDumper($options);
 $dumper->setRestorePath($restorePath); // /path/to/backups/mongodb/dump 
 $dumper->restore();
-?&gt;
                                     </code></pre>
                                 </div><!--//code-block-->
                                <div class="code-block">
                                     <h6>Restore from archive</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MongoDumper::create($options)
   ->useCompress("gzip")
   ->setRestorePath($restorePath) // /path/to/backups/mongodb/dump.gz
   ->restore();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
                                 <div class="code-block">
                                     <h6>Use URI</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php">  
 \CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
     ->setRestorePath($restorePath)
     ->restore();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
 
                                 <div class="code-block">
                                     <h6>Restore from archive using URI</h6>
-                                    <pre><code class="language-php">
-&lt;?php  
-
+                                    <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MongoDumper::create(['uri' => $uri])
   ->useCompress("gzip")
   ->setRestorePath($restorePath)
   ->restore();
-
-?&gt;
                                       </code>
                                    </pre>
                                 </div><!--//code-block-->
@@ -801,18 +680,14 @@ $dumper->restore();
                         </section> <!--=============== mongodb-section End ===============-->
 
                         <!--=============== common-section End ===============-->
-                        <section id="common-section" class="doc-section">
+                        <section id="dump-binary-path-section" class="doc-section">
                             <div class="code-block">
                                 <h6>Set Dump Binary Path</h6>
                                 <pre><code class="language-php">
-&lt;?php  
-
 // Same for other driver
 \CodexShaper\Dumper\Drivers\MysqlDumper::create($options)
   ->setCommandBinaryPath($binaryPath) // /path/to/mysql/bin
   ->dump();
-
-?&gt;
                                     </code>
                                 </pre>
                             </div><!--//code-block-->
