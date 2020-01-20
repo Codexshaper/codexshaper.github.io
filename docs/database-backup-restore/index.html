@@ -231,8 +231,24 @@
                     <div class="content-inner">
                         <section id="installation-section" class="doc-section">
                             <h2 class="section-title">Installation</h2>
+                            <h3></h3>
                             <div id="step3"  class="section-block">
-                              <div class="block">composer require codexshaper/database-backup-restore</div>
+                              <div class="block">Existing Project just simply run <span>composer require codexshaper/database-backup-restore</span></div>
+                            </div><!--//section-block-->
+                            <div id="step3"  class="section-block">
+                              <div class="block">New project. Create a <span>composer.json</span> in your root directory then add below code</div>
+                              <div class="code-block" > 
+                                 <pre><code class="language-javascript">
+{
+    "require": {
+        "codexshaper/database-backup-restore": "^1.1"
+    }
+}
+                                 </code></pre>
+                             </div>
+                             <div id="step3"  class="section-block">
+                              <div class="block">composer install</div>
+                            </div><!--//section-block-->
                             </div><!--//section-block-->
                         </section><!--//doc-section-->
                         <section id="mysql-section" class="doc-section"><!--=============== mysql-section Start ===============-->
@@ -275,12 +291,12 @@ $dumper->dump();
                                     <h6>Dynamically</h6>
                                     <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\MysqlDumper::create()
-  ->setHost($host)
-  ->setPort($port)
-  ->setDbName($database)
-  ->setUserName($username)
-  ->setPassword($password)
-  ->setDestinationPath($destinationPath)
+  ->setHost('localhost')
+  ->setPort('3306')
+  ->setDbName('dbName')
+  ->setUserName('userName')
+  ->setPassword('password')
+  ->setDestinationPath('destination_path')
   ->dump();
                                       </code>
                                    </pre>
@@ -370,12 +386,12 @@ $dumper->dump();
                                     <h6>Dynamically</h6>
                                     <pre><code class="language-php"> 
 \CodexShaper\Dumper\Drivers\PgsqlDumper::create()
-  ->setHost($host)
-  ->setPort($port)
-  ->setDbName($database)
-  ->setUserName($username)
-  ->setPassword($password)
-  ->setDestinationPath($destinationPath)
+  ->setHost('localhost')
+  ->setPort('3306')
+  ->setDbName('dbName')
+  ->setUserName('userName')
+  ->setPassword('password')
+  ->setDestinationPath('destination_path')
   ->dump();
 
                                       </code>
