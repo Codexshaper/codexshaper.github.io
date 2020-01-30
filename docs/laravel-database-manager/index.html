@@ -50,6 +50,7 @@
                             <a class="nav-link scrollto" href="#record">Record</a>
                             <a class="nav-link scrollto" href="#backup">Backup</a>
                             <a class="nav-link scrollto" href="#config">Config</a>
+                            <a class="nav-link scrollto" href="#publish">Publish</a>
                         </nav><!--//doc-menu-->
                     </div>
                 </div>
@@ -932,6 +933,38 @@ class OptionController extends Controller
 
 'prefix'               => '/database',
                               </code></pre>
+                            </div>
+                        </section>
+                        <!-- Publish-->
+                        <section id="publish" class="doc-section">
+                            <h2 class="section-title">Publish</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block">Publish resources</div>
+                            </div>
+                            <!-- Publish Config -->
+                            <h2 class="section-title">Publish Config</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan vendor:publish --tag=dbm.config</span></div>
+                            </div>
+                            <!-- Publish Migrations -->
+                            <h2 class="section-title">Publish Migrations</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan vendor:publish --tag=dbm.migrations</span></div>
+                            </div>
+                            <!-- Publish Seeds -->
+                            <h2 class="section-title">Publish Seeds</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan vendor:publish --tag=dbm.seeds</span></div>
+                            </div>
+                            <!-- Publish Views -->
+                            <h2 class="section-title">Publish Views</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan vendor:publish --tag=dbm.views</span></div>
+                            </div>
+                            <!-- Publish Resource -->
+                            <h2 class="section-title">Publish full resource</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan vendor:publish --tag=dbm.resources</span></div>
                             </div>
                         </section>
                     </div><!--//content-inner-->
