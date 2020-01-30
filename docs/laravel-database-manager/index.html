@@ -49,6 +49,7 @@
                             <a class="nav-link scrollto" href="#relationship">Relationship</a>
                             <a class="nav-link scrollto" href="#record">Record</a>
                             <a class="nav-link scrollto" href="#backup">Backup</a>
+                            <a class="nav-link scrollto" href="#config">Config</a>
                         </nav><!--//doc-menu-->
                     </div>
                 </div>
@@ -879,6 +880,60 @@ class OptionController extends Controller
                                  </code></pre>
                             </div>
                         </section><!-- End Backup -->
+                        <!-- Config -->
+                        <section id="config" class="doc-section">
+                            <h2 class="section-title">Config</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block">To edit your own configuration go to <span>config/dbm.php</span> then change your settings</div>
+                            </div>
+                            <!-- Base Path -->
+                            <h2 class="section-title">Base Path</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block">When your root directory not <span>public</span> then specify the <span>public</span> directory. EX: your public directory is <span>http://localhost/laravel-database-manager/public</span> then simply add <span>/laravel-database-manager/public</span> in <span>base_path</span> </div>
+                            </div>
+                            <div class="code-block" > 
+                              <pre><code class="language-php">
+/*
+|-------------------------------------------------------------
+| Base Path
+|-------------------------------------------------------------
+|
+| Base URL
+| by default root path. You can add base path /path/to/project/public
+|
+| Don't put trailing/end slash(/)
+|
+|
+ */
+
+'base_path'               => '',
+                              </code></pre>
+                            </div>
+                            <!-- Prefix -->
+                            <h2 class="section-title">Prefix</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"> Set URL prefix after base path. Default value prefix is <span>/database</span></div>
+                            </div>
+                            <div class="code-block" > 
+                              <pre><code class="language-php">
+/*
+|-------------------------------------------------------------
+| Prefix
+|-------------------------------------------------------------
+|
+| Set custom URL prefix
+| by default /database . You can add prefix before /database
+| Currently supports only empty string. You can use it later
+|
+| Don't put trailing/end slash(/)
+|
+|
+ */
+
+'prefix'               => '/database',
+                              </code></pre>
+                            </div>
+                        </section>
                     </div><!--//content-inner-->
                 </div>
                 <!--================== doc-content  Start =================== -->
