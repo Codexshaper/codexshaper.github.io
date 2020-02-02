@@ -51,6 +51,7 @@
                             <a class="nav-link scrollto" href="#backup">Backup</a>
                             <a class="nav-link scrollto" href="#config">Config</a>
                             <a class="nav-link scrollto" href="#publish">Publish</a>
+                            <a class="nav-link scrollto" href="#command">Command</a>
                         </nav><!--//doc-menu-->
                     </div>
                 </div>
@@ -965,6 +966,60 @@ class OptionController extends Controller
                             <h2 class="section-title">Publish full resource</h2>
                             <div id="step3"  class="section-block">
                               <div class="block"><span>php artisan vendor:publish --tag=dbm.resources</span></div>
+                            </div>
+                        </section>
+                        <!-- Command -->
+                        <section id="command" class="doc-section">
+                            <h2 class="section-title">Commands</h2>
+                            <!-- Publish Config -->
+                            <h2 class="section-title">Install</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:install</span></div>
+                            </div>
+                            <!-- Publish Migrations -->
+                            <h2 class="section-title">Seed Migrations</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:seed</span></div>
+                            </div>
+                            <!-- Make database admin -->
+                            <h2 class="section-title">Make databse admin</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:admin {findValue}</span></div>
+                              OR specify column name
+                              <div class="block"><span>php artisan dbm:admin {findValue} create --column={findColumn}</span></div>
+                            </div>
+                            <!-- Remove database admin -->
+                            <h2 class="section-title">Remove databse admin</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:admin {findValue} drop</span></div>
+                              OR specify column name
+                              <div class="block"><span>php artisan dbm:admin {findValue} drop create --column={findColumn}</span></div>
+                            </div>
+                            <!-- Make full database backup -->
+                            <h2 class="section-title">Make Full database Backup</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:backup</span></div>
+                            </div>
+                            <!-- Make single table backup -->
+                            <h2 class="section-title">Make single table Backup</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:backup --t=tableName</span></div>
+                              OR
+                              <div class="block"><span>php artisan dbm:backup --table=tableName</span></div>
+                            </div>
+                            <!-- Restore database using full path -->
+                            <h2 class="section-title">Restore Database using full path</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:restore --p=fullPath</span></div>
+                              OR
+                              <div class="block"><span>php artisan dbm:restore --path=fullPath</span></div>
+                            </div>
+                            <!-- Restore database using filename -->
+                            <h2 class="section-title">Restore Database using filename</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block"><span>php artisan dbm:restore --f=fileName</span></div>
+                              OR
+                              <div class="block"><span>php artisan dbm:restore --file=fileName</span></div>
                             </div>
                         </section>
                     </div><!--//content-inner-->
