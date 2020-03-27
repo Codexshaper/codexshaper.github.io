@@ -1,0 +1,2316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Laravel WooCommerce</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- FontAwesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js" integrity="sha384-DJ25uNYET2XCl5ZF++U8eNxPWqcKohUUBUpKGlNLMchM7q4Wjg2CUpjHLaL8yYPH" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+    
+</head> 
+
+<body class="body-green">
+    <div class="page-wrapper">
+        <!-- ******Header****** -->
+        <header id="header" class="header">
+            <div class="container">
+                <div id="doc-header" class="doc-header text-center">
+                    <h1 class="doc-title"> Laravel WooCommerce Documentation</h1>
+                    <ul class="menu-items">
+                      <li><a href="https://github.com/Codexshaper/laravel-woocommerce"><i class="fab fa-github"></i></a></li>
+                      <li><a href="#">Demo</a></li>
+                    </ul>
+                </div><!--//doc-header-->
+            </div><!--//container-->
+        </header><!--//header-->
+        <div class="doc-wrapper align-self-start sticky-top">
+            <div class="container">
+                <div class="doc-body row">
+
+                <!--=============== slidebar-menu  Start =============== -->
+                <div class="doc-sidebar col-sm-3 align-self-start sticky-top">
+                    <div id="doc-nav" class="doc-nav">
+                        <nav id="doc-menu" class="nav doc-menu flex-column sticky">
+                            <a class="nav-link scrollto" href="#installation-section">Installation</a>
+                            <!-- Coupon menu -->
+                            <a class="nav-link scrollto" href="#coupon-section">coupon
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-coupon">Create a coupon</a>
+                                    <a class="nav-link scrollto" href="#retrieve-coupon">Retrieve a coupon</a>
+                                    <a class="nav-link scrollto" href="#retrieve-coupons">Retrieve all coupons</a>
+                                    <a class="nav-link scrollto" href="#update-coupon">Update a coupon</a>
+                                    <a class="nav-link scrollto" href="#delete-coupon">Delete a coupon</a>
+                                    <a class="nav-link scrollto" href="#batch-coupon">Batch update coupons</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Customer menu -->
+                            <a class="nav-link scrollto" href="#customer-section">Customer
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-customer">Create a customer</a>
+                                    <a class="nav-link scrollto" href="#retrieve-customer">Retrieve a customer</a>
+                                    <a class="nav-link scrollto" href="#retrieve-customers">Retrieve all customers</a>
+                                    <a class="nav-link scrollto" href="#update-customer">Update a customer</a>
+                                    <a class="nav-link scrollto" href="#delete-customer">Delete a customer</a>
+                                    <a class="nav-link scrollto" href="#batch-customer">Batch update customers</a>
+                                    <a class="nav-link scrollto" href="#customer-downloads">Downloads</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product menu -->
+                            <a class="nav-link scrollto" href="#product-section">Product
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-product">Create a product</a>
+                                    <a class="nav-link scrollto" href="#retrieve-product">Retrieve a product</a>
+                                    <a class="nav-link scrollto" href="#retrieve-products">Retrieve all products</a>
+                                    <a class="nav-link scrollto" href="#update-product">Update a product</a>
+                                    <a class="nav-link scrollto" href="#delete-product">Delete a product</a>
+                                    <a class="nav-link scrollto" href="#batch-product">Batch update products</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product variation menu -->
+                            <a class="nav-link scrollto" href="#variation-section">Product Variations
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-variation">Create a variation</a>
+                                    <a class="nav-link scrollto" href="#retrieve-variation">Retrieve a variation</a>
+                                    <a class="nav-link scrollto" href="#retrieve-variations">Retrieve all variations</a>
+                                    <a class="nav-link scrollto" href="#update-variation">Update a variation</a>
+                                    <a class="nav-link scrollto" href="#delete-variation">Delete a variation</a>
+                                    <a class="nav-link scrollto" href="#batch-variation">Batch update variations</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product attribute menu -->
+                            <a class="nav-link scrollto" href="#attribute-section">Product Attributes
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-attribute">Create a attribute</a>
+                                    <a class="nav-link scrollto" href="#retrieve-attribute">Retrieve a attribute</a>
+                                    <a class="nav-link scrollto" href="#retrieve-attributes">Retrieve all attributes</a>
+                                    <a class="nav-link scrollto" href="#update-attribute">Update a attribute</a>
+                                    <a class="nav-link scrollto" href="#delete-attribute">Delete a attribute</a>
+                                    <a class="nav-link scrollto" href="#batch-attribute">Batch update attributes</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product attribute term menu -->
+                            <a class="nav-link scrollto" href="#term-section">Product Attribute Terms
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-term">Create a term</a>
+                                    <a class="nav-link scrollto" href="#retrieve-term">Retrieve a term</a>
+                                    <a class="nav-link scrollto" href="#retrieve-terms">Retrieve all terms</a>
+                                    <a class="nav-link scrollto" href="#update-term">Update a term</a>
+                                    <a class="nav-link scrollto" href="#delete-term">Delete a term</a>
+                                    <a class="nav-link scrollto" href="#batch-term">Batch update terms</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product category menu -->
+                            <a class="nav-link scrollto" href="#category-section">Product Categories
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-category">Create a category</a>
+                                    <a class="nav-link scrollto" href="#retrieve-category">Retrieve a category</a>
+                                    <a class="nav-link scrollto" href="#retrieve-categories">Retrieve all categories</a>
+                                    <a class="nav-link scrollto" href="#update-category">Update a category</a>
+                                    <a class="nav-link scrollto" href="#delete-category">Delete a category</a>
+                                    <a class="nav-link scrollto" href="#batch-category">Batch update categories</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product tag menu -->
+                            <a class="nav-link scrollto" href="#tag-section">Product Tags
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-tag">Create a tag</a>
+                                    <a class="nav-link scrollto" href="#retrieve-tag">Retrieve a tag</a>
+                                    <a class="nav-link scrollto" href="#retrieve-tags">Retrieve all tags</a>
+                                    <a class="nav-link scrollto" href="#update-tag">Update a tag</a>
+                                    <a class="nav-link scrollto" href="#delete-tag">Delete a tag</a>
+                                    <a class="nav-link scrollto" href="#batch-tag">Batch update tags</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Product review menu -->
+                            <a class="nav-link scrollto" href="#review-section">Product Reviews
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-review">Create a review</a>
+                                    <a class="nav-link scrollto" href="#retrieve-review">Retrieve a review</a>
+                                    <a class="nav-link scrollto" href="#retrieve-reviews">Retrieve all reviews</a>
+                                    <a class="nav-link scrollto" href="#update-review">Update a review</a>
+                                    <a class="nav-link scrollto" href="#delete-review">Delete a review</a>
+                                    <a class="nav-link scrollto" href="#batch-review">Batch update reviews</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Order menu -->
+                            <a class="nav-link scrollto" href="#order-section">Order
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-order">Create a order</a>
+                                    <a class="nav-link scrollto" href="#retrieve-order">Retrieve a order</a>
+                                    <a class="nav-link scrollto" href="#retrieve-orders">Retrieve all orders</a>
+                                    <a class="nav-link scrollto" href="#update-order">Update a order</a>
+                                    <a class="nav-link scrollto" href="#delete-order">Delete a order</a>
+                                    <a class="nav-link scrollto" href="#batch-order">Batch update orders</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Order Note menu -->
+                            <a class="nav-link scrollto" href="#order-notes-section">Order notes
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-note">Create a order note</a>
+                                    <a class="nav-link scrollto" href="#retrieve-note">Retrieve a order note</a>
+                                    <a class="nav-link scrollto" href="#retrieve-notes">Retrieve all order notes</a>
+                                    <a class="nav-link scrollto" href="#delete-note">Delete a order note</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Order refund menu -->
+                            <a class="nav-link scrollto" href="#refund-section">Order Refund
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-refund">Create a order refund</a>
+                                    <a class="nav-link scrollto" href="#retrieve-refund">Retrieve a order refund</a>
+                                    <a class="nav-link scrollto" href="#retrieve-refunds">Retrieve all order refunds</a>
+                                    <a class="nav-link scrollto" href="#delete-refund">Delete a order refund</a>
+                                </nav><!--//nav-->
+                            </a>
+                            <!-- Report menu -->
+                            <a class="nav-link scrollto" href="#report-section">Reports
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#list-all-reports">List all reports</a>
+                                    <a class="nav-link scrollto" href="#retrieve-sales-report">Retrieve sales report</a>
+                                    <a class="nav-link scrollto" href="#retrieve-top-sellers-report">Retrieve top sellers report</a>
+                                    <a class="nav-link scrollto" href="#retrieve-coupons-totals">Retrieve coupons totals</a>
+                                    <a class="nav-link scrollto" href="#retrieve-customers-totals">Retrieve customers totals</a>
+                                    <a class="nav-link scrollto" href="#retrieve-orders-totals">Retrieve orders totals</a>
+                                    <a class="nav-link scrollto" href="#retrieve-products-totals">Retrieve products totals</a>
+                                    <a class="nav-link scrollto" href="#retrieve-reviews-totals">Retrieve reviews totals</a>
+                                </nav><!--//nav-->
+                            </a>
+                        </nav><!--//doc-menu-->
+                    </div>
+                </div>
+                <!--=============== slidebar-menu  End =============== -->
+
+               <!--=================== doc-content  Start =================== -->
+
+                <div class="doc-content col-md-9">
+                    <div class="content-inner">
+                        <!-- Installation -->
+                        <section id="installation-section" class="doc-section">
+                            <h2 class="section-title">Install Package</h2>
+                            <div id="step3"  class="section-block">
+                              <div class="block">composer require codexshaper/laravel-woocommerce</div>
+                            </div>
+                            <h2 class="section-title">Publish config file</h2>
+                            <div class="block">php artisan vendor:publish --tag=woocommerce</div>
+                            <div class="block">Add API credentials in your .env file</div>
+                            <div class="code-block" > 
+                              <pre><code class="language-php">
+&lt;?php 
+
+WOOCOMMERCE_STORE_URL=YOUR_WEBSITE_URL
+WOOCOMMERCE_CONSUMER_KEY=API_CONSUMER_KEY
+WOOCOMMERCE_CONSUMER_SECRET=API_CONSUMER_SECRET
+                            </code></pre>
+                          </div><!--//code-block-->
+                        </section><!-- End Installation -->
+                        <!-- Start Coupon -->
+                        <section id="coupon-section" class="doc-section">
+                          <h2 class="section-title">Coupon</h2>
+
+                          <h3 class="block-title">Properties</h3>
+                          <div class="block">See all coupon properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#coupon-properties</span></div>
+
+                          <div id="create-coupon"  class="section-block">
+                            <!-- Create -->
+                            <h3 class="block-title">Create a coupon</h3>
+                            <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Coupon;</span> or simply <span>use Coupon;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                            <h3 class="block">Create simple coupon</h3> 
+                            <div class="code-block" > 
+                             <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'code' => '10off',
+    'discount_type' => 'percent',
+    'amount' => '10',
+    'individual_use' => true,
+    'exclude_sale_items' => true,
+    'minimum_amount' => '100.00'
+];
+
+$coupon = Coupon::create($data);
+                  </code></pre>
+                </div><!--//code-block-->
+
+              </div><!--//section-block-->
+
+              <!-- Start Retrieve coupon -->
+              <div id="retrieve-coupon"  class="section-block">
+                <!-- Start Create -->
+                <h3 class="block-title">Retrieve a coupon</h3>
+                <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Coupon;</span> or simply <span>use Coupon;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                <div class="code-block" > 
+                 <pre><code class="language-php">
+&lt;?php
+$coupon_id = 1;
+$coupon = Coupon::find($coupon_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all coupons -->
+                    <div id="retrieve-coupons"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all coupons</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Coupon;</span> or simply <span>use Coupon;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$coupons = Coupon::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a coupon-->
+                <div id="update-coupon"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a coupon</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Coupon;</span> or simply <span>use Coupon;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$coupon_id = 2;
+$data = [
+    'amount' => '5'
+];
+
+$custmer = Coupon::update($coupon_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a coupon -->
+                <div id="delete-coupon"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a coupon</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Coupon;</span> or simply <span>use Coupon;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$coupon_id = 40;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$coupon = Coupon::delete($coupon_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update coupons -->
+                <div id="batch-coupon"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update coupons</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Coupon;</span> or simply <span>use Coupon;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+  'create' => [
+      [
+          'code' => '20off',
+          'discount_type' => 'percent',
+          'amount' => '20',
+          'individual_use' => true,
+          'exclude_sale_items' => true,
+          'minimum_amount' => '100.00'
+      ],
+      [
+          'code' => '30off',
+          'discount_type' => 'percent',
+          'amount' => '30',
+          'individual_use' => true,
+          'exclude_sale_items' => true,
+          'minimum_amount' => '100.00'
+      ]
+  ],
+  'update' => [
+      [
+          'id' => 719,
+          'minimum_amount' => '50.00'
+      ]
+  ],
+  'delete' => [
+      720
+  ]
+];
+
+$batch = Coupon::batch($data);
+
+                      </code></pre>
+                    </div><!--//code-block-->
+
+                    </div>
+                  </section> <!-- End Coupon -->
+                        <!-- Start Customer -->
+                        <section id="customer-section" class="doc-section">
+                          <h2 class="section-title">Customer</h2>
+
+                          <h3 class="block-title">Properties</h3>
+                          <div class="block">See all customer properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#customer-properties</span></div>
+
+                          <div id="create-customer"  class="section-block">
+                            <!-- Create -->
+                            <h3 class="block-title">Create a customer</h3>
+                            <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                            <h3 class="block">Create simple customer</h3> 
+                            <div class="code-block" > 
+                             <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'email' => 'john.doe@example.com',
+    'first_name' => 'John',
+    'last_name' => 'Doe',
+    'username' => 'john.doe',
+    'billing' => [
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'company' => '',
+        'address_1' => '969 Market',
+        'address_2' => '',
+        'city' => 'San Francisco',
+        'state' => 'CA',
+        'postcode' => '94103',
+        'country' => 'US',
+        'email' => 'john.doe@example.com',
+        'phone' => '(555) 555-5555'
+    ],
+    'shipping' => [
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'company' => '',
+        'address_1' => '969 Market',
+        'address_2' => '',
+        'city' => 'San Francisco',
+        'state' => 'CA',
+        'postcode' => '94103',
+        'country' => 'US'
+    ]
+];
+
+$customer = Customer::create($data);
+                  </code></pre>
+                </div><!--//code-block-->
+
+              </div><!--//section-block-->
+
+              <!-- Start Retrieve customer -->
+              <div id="retrieve-customer"  class="section-block">
+                <!-- Start Create -->
+                <h3 class="block-title">Retrieve a customer</h3>
+                <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                <div class="code-block" > 
+                 <pre><code class="language-php">
+&lt;?php
+$customer_id = 1;
+$customer = Customer::find($customer_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all customers -->
+                    <div id="retrieve-customers"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all customers</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$customers = Customer::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a customer-->
+                <div id="update-customer"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a customer</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$customer_id = 2;
+$data = [
+    'first_name' => 'James',
+    'billing' => [
+        'first_name' => 'James'
+    ],
+    'shipping' => [
+        'first_name' => 'James'
+    ]
+];
+
+$custmer = Customer::update($customer_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a customer -->
+                <div id="delete-customer"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a customer</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$customer_id = 40;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$customer = Customer::delete($customer_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update customers -->
+                <div id="batch-customer"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update customers</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'email' => 'john.doe2@example.com',
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'username' => 'john.doe2',
+            'billing' => [
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'company' => '',
+                'address_1' => '969 Market',
+                'address_2' => '',
+                'city' => 'San Francisco',
+                'state' => 'CA',
+                'postcode' => '94103',
+                'country' => 'US',
+                'email' => 'john.doe@example.com',
+                'phone' => '(555) 555-5555'
+            ],
+            'shipping' => [
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'company' => '',
+                'address_1' => '969 Market',
+                'address_2' => '',
+                'city' => 'San Francisco',
+                'state' => 'CA',
+                'postcode' => '94103',
+                'country' => 'US'
+            ]
+        ],
+        [
+            'email' => 'joao.silva2@example.com',
+            'first_name' => 'João',
+            'last_name' => 'Silva',
+            'username' => 'joao.silva2',
+            'billing' => [
+                'first_name' => 'João',
+                'last_name' => 'Silva',
+                'company' => '',
+                'address_1' => 'Av. Brasil, 432',
+                'address_2' => '',
+                'city' => 'Rio de Janeiro',
+                'state' => 'RJ',
+                'postcode' => '12345-000',
+                'country' => 'BR',
+                'email' => 'joao.silva@example.com',
+                'phone' => '(55) 5555-5555'
+            ],
+            'shipping' => [
+                'first_name' => 'João',
+                'last_name' => 'Silva',
+                'company' => '',
+                'address_1' => 'Av. Brasil, 432',
+                'address_2' => '',
+                'city' => 'Rio de Janeiro',
+                'state' => 'RJ',
+                'postcode' => '12345-000',
+                'country' => 'BR'
+            ]
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 26,
+            'billing' => [
+                'phone' => '(11) 1111-1111'
+            ]
+        ]
+    ],
+    'delete' => [
+        25
+    ]
+];
+
+$batch = Customer::batch($data);
+
+                      </code></pre>
+                    </div><!--//code-block-->
+
+                    </div>
+                    <!-- Customer downloads -->
+                    <div id="customer-downloads"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Customer downloads</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Customer;</span> or simply <span>use Customer;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                        <pre><code class="language-php">
+&lt;?php
+
+$customer_id = 40;
+$downloads = Customer::downloads($customer_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+
+                    </div>
+                  </section> <!-- End Customer -->
+                  <!-- Start product -->
+                  <section id="product-section" class="doc-section">
+                      <h2 class="section-title">Product</h2>
+
+                      <div id="create-product"  class="section-block">
+                        <h3 class="block-title">Properties</h3>
+                        <div class="block">See all product properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-properties</span></div>
+                        <!-- Start Create -->
+                        <h3 class="block-title">Create a product</h3>
+                        <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Product;</span> or simply <span>use Product;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                        <h3 class="block">Create simple product</h3> 
+                        <div class="code-block" > 
+                         <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'name' => 'Simple Product',
+    'type' => 'simple',
+    'regular_price' => '10.00',
+    'description' => 'Variable product full description.',
+    'short_description' => 'Variable product short description.',
+    'categories' => [
+        [
+            'id' => 1
+        ],
+        [
+            'id' => 3
+        ],
+        [
+            'id' => 5
+        ]
+    ],
+    'images' => [
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg'
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg'
+        ]
+    ]
+];
+
+$product = Product::create($data);
+            </code></pre>
+          </div><!--//code-block-->
+
+          <h3 class="block">Create variable product</h3> 
+              <div class="code-block" > 
+               <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'name' => 'Variable Product',
+    'type' => 'variable',
+    'description' => 'Variable product full description.',
+    'short_description' => 'Variable product short description.',
+    'categories' => [
+        [
+          'id' => 1
+        ],
+        [
+          'id' => 3
+        ],
+        [
+          'id' => 5
+        ]
+    ],
+    'images' => [
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_front.jpg'
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_4_back.jpg'
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_front.jpg'
+        ],
+        [
+            'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_3_back.jpg'
+        ]
+    ],
+    'attributes' => [
+        [
+            'id' => 6,
+            'position' => 0,
+            'visible' => false,
+            'variation' => true,
+            'options' => [
+                'Black',
+                'Green'
+            ]
+        ],
+        [
+            'name' => 'Size',
+            'position' => 0,
+            'visible' => true,
+            'variation' => true,
+            'options' => [
+                'S',
+                'M'
+            ]
+        ]
+    ],
+    'default_attributes' => [
+        [
+            'id' => 6,
+            'option' => 'Black'
+        ],
+        [
+            'name' => 'Size',
+            'option' => 'S'
+        ]
+    ]
+];
+
+$product = Product::create($data);
+            </code></pre>
+          </div><!--//code-block-->
+
+          <h3 class="block">Create like laravel eloquent</h3> 
+              <div class="code-block" > 
+               <pre><code class="language-php">
+&lt;?php 
+
+$categories = [
+    [
+        'id' => 1,
+    ],
+    [
+        'id' => 3,
+    ],
+];
+
+$images = [
+    [
+        'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg',
+    ],
+    [
+        'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg',
+    ],
+];
+
+$product                    = new Product;
+$product->name              = 'Product Eloquent 2';
+$product->type              = 'simple';
+$product->regular_price     = '100';
+$product->sale_price        = '50';
+$product->description       = 'Product Description';
+$product->short_description = 'Product Short Description';
+$product->categories        = $categories;
+$product->images            = $images;
+$product->save();
+                            </code></pre>
+                          </div><!--//code-block-->
+                        <!-- Start -->
+
+                        </div><!--//section-block-->
+
+                        <!-- Start Retrieve Product -->
+                        <div id="retrieve-product"  class="section-block">
+                          <!-- Start Create -->
+                          <h3 class="block-title">Retrieve a product</h3>
+                          <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Product;</span> or simply <span>use Product;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                          <div class="code-block" > 
+                           <pre><code class="language-php">
+&lt;?php
+$product_id = 1;
+$product = Product::find($product_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all products -->
+                    <div id="retrieve-products"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all products</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Product;</span> or simply <span>use Product;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$products = Product::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a product-->
+                <div id="update-product"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a product</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Product;</span> or simply <span>use Product;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$product_id = 40;
+$data       = [
+    'regular_price' => '50',
+    'sale_price'    => '25', // 50% off
+];
+
+$product = Product::update($product_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a product -->
+                <div id="delete-product"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a product</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Product;</span> or simply <span>use Product;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$product_id = 40;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$product = Product::delete($product_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update products -->
+                <div id="batch-product"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update products</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Product;</span> or simply <span>use Product;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'name' => 'Woo Single #1',
+            'type' => 'simple',
+            'regular_price' => '21.99',
+            'virtual' => true,
+            'downloadable' => true,
+            'downloads' => [
+                [
+                    'name' => 'Woo Single',
+                    'file' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/cd_4_angle.jpg'
+                ]
+            ],
+            'categories' => [
+                [
+                    'id' => 11
+                ],
+                [
+                    'id' => 13
+                ]
+            ],
+            'images' => [
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/cd_4_angle.jpg'
+                ]
+            ]
+        ],
+        [
+            'name' => 'New Premium Quality',
+            'type' => 'simple',
+            'regular_price' => '21.99',
+            'description' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
+            'short_description' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.',
+            'categories' => [
+                [
+                    'id' => 9
+                ],
+                [
+                    'id' => 14
+                ]
+            ],
+            'images' => [
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg'
+                ],
+                [
+                    'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_back.jpg'
+                ]
+            ]
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 799,
+            'default_attributes' => [
+                [
+                    'id' => 6,
+                    'name' => 'Color,
+                    'option' => 'Green'
+                ],
+                [
+                    'id' => 0,
+                    'name' => 'Size',
+                    'option' => 'M'
+                ]
+            ]
+        ]
+    ],
+    'delete' => [
+        794
+    ]
+];
+
+$batch = Product::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Product -->
+              <!-- Start Product Variations -->
+              <section id="variation-section" class="doc-section">
+                <h2 class="section-title">variation</h2>
+
+                <div id="create-variation"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all variation properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-variation-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create an variation</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Variation;</span> or simply <span>use Variation;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$product_id = 70;
+$data = [
+    'regular_price' => '9.00',
+    'image' => [
+        'id' => 423
+    ],
+    'attributes' => [
+        [
+            'id' => 9,
+            'option' => 'Black'
+        ]
+    ]
+];
+
+$variation = Variation::create($product_id, $data);
+              </code></pre>
+            </div><!--//code-block-->
+
+                        </div><!--//section-block-->
+
+                        <!-- Start Retrieve variation -->
+                        <div id="retrieve-variation"  class="section-block">
+                          <!-- Start Create -->
+                          <h3 class="block-title">Retrieve an variation</h3>
+                          <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Variation;</span> or simply <span>use Variation;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                          <div class="code-block" > 
+                           <pre><code class="language-php">
+&lt;?php
+
+$product_id = 70;
+$variation_id = 1;
+$variation = Variation::find($product_id, $variation_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all variations -->
+                    <div id="retrieve-variations"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all variations</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Variation;</span> or simply <span>use Variation;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$product_id = 70;
+$variations = Variation::all($product_id);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a variation-->
+                <div id="update-variation"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update an variation</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Variation;</span> or simply <span>use Variation;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$product_id = 70;
+$variation_id = 173;
+$data = [
+    'regular_price' => '10.00'
+];
+
+$variation = Variation::update($product_id, $variation_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a variation -->
+                <div id="delete-variation"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete an variation</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Variation;</span> or simply <span>use Variation;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$product_id = 70;
+$variation_id = 173;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$variation = Variation::delete($product_id, $variation_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update variations -->
+                <div id="batch-variation"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update variations</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Variation;</span> or simply <span>use Variation;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'regular_price' => '10.00',
+            'attributes' => [
+                [
+                    'id' => 6,
+                    'option' => 'Blue'
+                ]
+            ]
+        ],
+        [
+            'regular_price' => '10.00',
+            'attributes' => [
+                [
+                    'id' => 6,
+                    'option' => 'White'
+                ]
+            ]
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 733,
+            'regular_price' => '10.00'
+        ]
+    ],
+    'delete' => [
+        732
+    ]
+];
+
+$product_id = 70;
+
+$batch = Variation::batch($product_id, $data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Product Variations -->
+              <!-- Start Product Attributes -->
+              <section id="attribute-section" class="doc-section">
+                <h2 class="section-title">attribute</h2>
+
+                <div id="create-attribute"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all attribute properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attribute-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create an attribute</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Attribute;</span> or simply <span>use Attribute;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'name' => 'Color',
+    'slug' => 'pa_color',
+    'type' => 'select',
+    'order_by' => 'menu_order',
+    'has_archives' => true
+];
+
+$attribute = Attribute::create($data);
+              </code></pre>
+            </div><!--//code-block-->
+
+                        </div><!--//section-block-->
+
+                        <!-- Start Retrieve attribute -->
+                        <div id="retrieve-attribute"  class="section-block">
+                          <!-- Start Create -->
+                          <h3 class="block-title">Retrieve an attribute</h3>
+                          <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Attribute;</span> or simply <span>use Attribute;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                          <div class="code-block" > 
+                           <pre><code class="language-php">
+&lt;?php
+$attribute_id = 1;
+$attribute = Attribute::find($attribute_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all attributes -->
+                    <div id="retrieve-attributes"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all attributes</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Attribute;</span> or simply <span>use Attribute;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$attributes = Attribute::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a attribute-->
+                <div id="update-attribute"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update an attribute</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Attribute;</span> or simply <span>use Attribute;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 173;
+$data = [
+    'order_by' => 'name'
+];
+
+$attribute = Attribute::update($attribute_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a attribute -->
+                <div id="delete-attribute"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete an attribute</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Attribute;</span> or simply <span>use Attribute;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 173;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$attribute = Attribute::delete($attribute_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update attributes -->
+                <div id="batch-attribute"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update attributes</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Attribute;</span> or simply <span>use Attribute;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'name' => 'Brand'
+        ],
+        [
+            'name' => 'Publisher'
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 2,
+            'order_by' => 'name'
+        ]
+    ],
+    'delete' => [
+        1
+    ]
+];
+
+$batch = Attribute::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Product Attributes -->
+              <!-- Start product attribute term -->
+              <section id="term-section" class="doc-section">
+                <h2 class="section-title">Attribute Term</h2>
+
+                <div id="create-term"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all term properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-attribute-term-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create a term</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Term;</span> or simply <span>use Term;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$attribute_id = 1;
+$data = [
+    'name' => 'Color',
+    'slug' => 'pa_color',
+    'type' => 'select',
+    'order_by' => 'menu_order',
+    'has_archives' => true
+];
+
+$term = Term::create($attribute_id, $data);
+OR
+$term = Attribute::addTerm($attribute_id, $data);
+              </code></pre>
+            </div><!--//code-block-->
+
+                        </div><!--//section-block-->
+
+                        <!-- Start Retrieve term -->
+                        <div id="retrieve-term"  class="section-block">
+                          <!-- Start Create -->
+                          <h3 class="block-title">Retrieve a term</h3>
+                          <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Term;</span> or simply <span>use Term;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                          <div class="code-block" > 
+                           <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 1;
+$term_id = 5;
+
+$term = Term::find($attribute_id, $term_id);
+OR
+$term = Attribute::getTerm($attribute_id, $term_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all terms -->
+                    <div id="retrieve-terms"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all terms</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Term;</span> or simply <span>use Term;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 1;
+
+$terms = Term::all($attribute_id);
+OR
+$terms = Attribute::getTerms($attribute_id);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a term-->
+                <div id="update-term"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a term</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Term;</span> or simply <span>use Term;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 1;
+$term_id = 173;
+$data = [
+    'name' => 'XXS'
+];
+
+$term = Term::update($attribute_id, $term_id, $data);
+OR
+$term = Attribute::updateTerm($attribute_id, $term_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a term -->
+                <div id="delete-term"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a term</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Term;</span> or simply <span>use Term;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 1;
+$term_id = 173;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$term = Term::delete($attribute_id, $term_id, $options);
+OR
+$term = Attribute::deleteTerm($attribute_id, $term_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update terms -->
+                <div id="batch-term"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update terms</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Term;</span> or simply <span>use Term;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$attribute_id = 1;
+$data = [
+    'create' => [
+        [
+            'name' => 'XXS'
+        ],
+        [
+            'name' => 'S'
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 19,
+            'menu_order' => 6
+        ]
+    ],
+    'delete' => [
+        21,
+        20
+    ]
+];
+
+$batch = Term::batch($attribute_id, $data);
+OR
+$batch = Attribute::batch($attribute_id, $data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Product Attributes term -->
+              <!-- Start Category -->
+              <section id="category-section" class="doc-section">
+                <h2 class="section-title">category</h2>
+
+                <div id="create-category"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all category properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-category-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create an category</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Category;</span> or simply <span>use Category;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    "name' => 'Clothing',
+    'image' => [
+        'src' => 'http://demo.woothemes.com/woocommerce/wp-content/uploads/sites/56/2013/06/T_2_front.jpg'
+    ]
+];
+
+$category = Category::create($data);
+              </code></pre>
+            </div><!--//code-block-->
+
+              </div><!--//section-block-->
+
+              <!-- Start Retrieve category -->
+              <div id="retrieve-category"  class="section-block">
+                <!-- Start Create -->
+                <h3 class="block-title">Retrieve a category</h3>
+                <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Category;</span> or simply <span>use Category;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                <div class="code-block" > 
+                 <pre><code class="language-php">
+&lt;?php
+$category_id = 1;
+$category = Category::find($category_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all categorys -->
+                    <div id="retrieve-categorys"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all categorys</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Category;</span> or simply <span>use Category;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$categorys = Category::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a category-->
+                <div id="update-category"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a category</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Category;</span> or simply <span>use Category;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$category_id = 173;
+$data = [
+    'description' => 'All kinds of clothes.'
+];
+
+$category = Category::update($category_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a category -->
+                <div id="delete-category"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a category</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Category;</span> or simply <span>use Category;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$category_id = 173;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$category = Category::delete($category_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update categories -->
+                <div id="batch-category"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update categorys</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Category;</span> or simply <span>use Category;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'name' => 'Albums'
+        ],
+        [
+            'name' => 'Clothing'
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 10,
+            'description' => 'Nice hoodies'
+        ]
+    ],
+    'delete' => [
+        11,
+        12
+    ]
+];
+$batch = Category::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Category -->
+              <!-- Start Tags -->
+              <section id="tag-section" class="doc-section">
+                <h2 class="section-title">tag</h2>
+
+                <div id="create-tag"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all tag properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-tag-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create an tag</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Tag;</span> or simply <span>use Tag;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'name' => 'Leather Shoes'
+];
+
+$tag = Tag::create($data);
+              </code></pre>
+            </div><!--//code-block-->
+
+              </div><!--//section-block-->
+
+              <!-- Start Retrieve tag -->
+              <div id="retrieve-tag"  class="section-block">
+                <!-- Start Create -->
+                <h3 class="block-title">Retrieve a tag</h3>
+                <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Tag;</span> or simply <span>use Tag;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                <div class="code-block" > 
+                 <pre><code class="language-php">
+&lt;?php
+$tag_id = 1;
+$tag = Tag::find($tag_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all tags -->
+                    <div id="retrieve-tags"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all tags</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Tag;</span> or simply <span>use Tag;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$tags = Tag::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a tag-->
+                <div id="update-tag"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a tag</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Tag;</span> or simply <span>use Tag;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$tag_id = 173;
+$data = [
+    'description': 'Genuine leather.'
+];
+
+$tag = Tag::update($tag_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a tag -->
+                <div id="delete-tag"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a tag</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Tag;</span> or simply <span>use Tag;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$tag_id = 173;
+$options = [
+  'force' => true // Set force option true for delete permanently. Default value false
+]; 
+
+$tag = Tag::delete($tag_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update categories -->
+                <div id="batch-tag"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update tags</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Tag;</span> or simply <span>use Tag;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'name' => 'Round toe'
+        ],
+        [
+            'name' => 'Flat'
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 34,
+            'description' => 'Genuine leather.'
+        ]
+    ],
+    'delete' => [
+        35
+    ]
+];
+
+$batch = Tag::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Tags -->
+              <!-- Start Review -->
+              <section id="review-section" class="doc-section">
+                <h2 class="section-title">review</h2>
+
+                <div id="create-review"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all review properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#product-review-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create an review</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Review;</span> or simply <span>use Review;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'product_id' => 22,
+    'review' => 'Nice album!',
+    'reviewer' => 'John Doe',
+    'reviewer_email' => 'john.doe@example.com',
+    'rating' => 5
+];
+
+$review = Review::create($data);
+              </code></pre>
+            </div><!--//code-block-->
+
+              </div><!--//section-block-->
+
+              <!-- Start Retrieve review -->
+              <div id="retrieve-review"  class="section-block">
+                <!-- Start Create -->
+                <h3 class="block-title">Retrieve a review</h3>
+                <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Review;</span> or simply <span>use Review;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                <div class="code-block" > 
+                 <pre><code class="language-php">
+&lt;?php
+$review_id = 1;
+$review = Review::find($review_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all reviews -->
+                    <div id="retrieve-reviews"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all reviews</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Review;</span> or simply <span>use Review;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$reviews = Review::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a review-->
+                <div id="update-review"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a review</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Review;</span> or simply <span>use Review;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$review_id = 173;
+$data = [
+    'rating': 5
+];
+
+$review = Review::update($review_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a review -->
+                <div id="delete-review"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a review</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Review;</span> or simply <span>use Review;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$review_id = 173;
+$options = [
+  'force' => true // Set force option true for delete permanently. Default value false
+]; 
+
+$review = Review::delete($review_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update categories -->
+                <div id="batch-review"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update reviews</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Review;</span> or simply <span>use Review;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'product_id' => 22,
+            'review' => 'Looks fine',
+            'reviewer' => 'John Doe',
+            'reviewer_email' => 'john.doe@example.com',
+            'rating' => 4
+        ],
+        [
+            'product_id' => 22,
+            'review' => 'I love this album',
+            'reviewer' => 'John Doe',
+            'reviewer_email' => 'john.doe@example.com',
+            'rating' => 5
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 7,
+            'reviewer' => 'John Doe',
+            'reviewer_email' => 'john.doe@example.com',
+        ]
+    ],
+    'delete' => [
+        22
+    ]
+];
+
+$batch = Review::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Tags -->
+              <!-- Order -->
+              <section id="order-section" class="doc-section">
+                <h2 class="section-title">Order</h2>
+
+                <div id="create-order"  class="section-block">
+                  <h3 class="block-title">Properties</h3>
+                  <div class="block">See all order properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#order-properties</span></div>
+                  <!-- Start Create -->
+                  <h3 class="block-title">Create an order</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Order;</span> or simply <span>use Order;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                   <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'payment_method'       => 'bacs',
+    'payment_method_title' => 'Direct Bank Transfer',
+    'set_paid'             => true,
+    'billing'              => [
+        'first_name' => 'John',
+        'last_name'  => 'Doe',
+        'address_1'  => '969 Market',
+        'address_2'  => '',
+        'city'       => 'San Francisco',
+        'state'      => 'CA',
+        'postcode'   => '94103',
+        'country'    => 'US',
+        'email'      => 'john.doe@example.com',
+        'phone'      => '(555) 555-5555',
+    ],
+    'shipping'             => [
+        'first_name' => 'John',
+        'last_name'  => 'Doe',
+        'address_1'  => '969 Market',
+        'address_2'  => '',
+        'city'       => 'San Francisco',
+        'state'      => 'CA',
+        'postcode'   => '94103',
+        'country'    => 'US',
+    ],
+    'line_items'           => [
+        [
+            'product_id' => 40,
+            'quantity'   => 2,
+        ],
+        [
+            'product_id'   => 127,
+            'variation_id' => 23,
+            'quantity'     => 1,
+        ],
+    ],
+];
+
+$order = Order::create($data);
+              </code></pre>
+            </div><!--//code-block-->
+
+              </div><!--//section-block-->
+
+              <!-- Start Retrieve order -->
+              <div id="retrieve-order"  class="section-block">
+                <!-- Start Create -->
+                <h3 class="block-title">Retrieve a order</h3>
+                <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Order;</span> or simply <span>use Order;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                <div class="code-block" > 
+                 <pre><code class="language-php">
+&lt;?php
+$order_id = 1;
+$order = Order::find($order_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all orders -->
+                    <div id="retrieve-orders"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all orders</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Order;</span> or simply <span>use Order;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$orders = Order::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a order-->
+                <div id="update-order"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update an order</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Order;</span> or simply <span>use Order;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+$data     = [
+    'status' => 'completed',
+];
+
+$order = Order::update($order_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a order -->
+                <div id="delete-order"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete an order</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Order;</span> or simply <span>use Order;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$order = Order::delete($order_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update orders -->
+                <div id="batch-order"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update orders</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Order;</span> or simply <span>use Order;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'payment_method' => 'bacs',
+            'payment_method_title' => 'Direct Bank Transfer',
+            'billing' => [
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'address_1' => '969 Market',
+                'address_2' => '',
+                'city' => 'San Francisco',
+                'state' => 'CA',
+                'postcode' => '94103',
+                'country' => 'US',
+                'email' => 'john.doe@example.com',
+                'phone' => '(555) 555-5555'
+            ],
+            'shipping' => [
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'address_1' => '969 Market',
+                'address_2' => '',
+                'city' => 'San Francisco',
+                'state' => 'CA',
+                'postcode' => '94103',
+                'country' => 'US'
+            ],
+            'line_items' => [
+                [
+                    'product_id' => 79,
+                    'quantity' => 1
+                ],
+                [
+                    'product_id' => 93,
+                    'quantity' => 1
+                ],
+                [
+                    'product_id' => 22,
+                    'variation_id' => 23,
+                    'quantity' => 1
+                ]
+            ],
+            'shipping_lines' => [
+                [
+                    'method_id' => 'flat_rate',
+                    'method_title' => 'Flat Rate',
+                    'total' => 30
+                ]
+            ]
+        ],
+        [
+            'payment_method' => 'bacs',
+            'payment_method_title' => 'Direct Bank Transfer',
+            'set_paid' => true,
+            'billing' => [
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'address_1' => '969 Market',
+                'address_2' => '',
+                'city' => 'San Francisco',
+                'state' => 'CA',
+                'postcode' => '94103',
+                'country' => 'US',
+                'email' => 'john.doe@example.com',
+                'phone' => '(555) 555-5555'
+            ],
+            'shipping' => [
+                'first_name' => 'John',
+                'last_name' => 'Doe',
+                'address_1' => '969 Market',
+                'address_2' => '',
+                'city' => 'San Francisco',
+                'state' => 'CA',
+                'postcode' => '94103',
+                'country' => 'US'
+            ],
+            'line_items' => [
+                [
+                    'product_id' => 22,
+                    'variation_id' => 23,
+                    'quantity' => 1
+                ],
+                [
+                    'product_id' => 22,
+                    'variation_id' => 24,
+                    'quantity' => 1
+                ]
+            ],
+            'shipping_lines' => [
+                [
+                    'method_id' => 'flat_rate',
+                    'method_title' => 'Flat Rate',
+                    'total' => 20
+                ]
+            ]
+        ]
+    ],
+    'update' => [
+        [
+            'id' => 727,
+            'shipping_methods' => 'Local Delivery'
+        ]
+    ],
+    'delete' => [
+        723
+    ]
+];
+$batch = Order::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Order -->
+
+              <!-- Order Notes -->
+              
+                  <!-- Order Notes -->
+                  <section id="order-notes-section" class="doc-section">
+                    <h2 class="section-title">Order Notes</h2>
+                    <h3 class="block-title">Properties</h3>
+                    <div class="block">See all order note properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#order-note-properties</span></div>
+
+                    <div id="create-note"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Create note</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Note;</span> or simply <span>use Note;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php 
+
+$order_id = 173;
+$data = [
+    'note' => 'Order ok!!!'
+];
+
+$note = Note::create($order_id, $data);
+
+OR
+
+$note = Order::createNote($order_id, $data);
+              </code></pre>
+            </div><!--//code-block-->
+
+          </div><!--//section-block-->
+
+            <!-- Start Retrieve order -->
+            <div id="retrieve-note"  class="section-block">
+              <!-- Start Create -->
+              <h3 class="block-title">Retrieve a note</h3>
+              <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Note;</span> or simply <span>use Note;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+              <div class="code-block" > 
+               <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+$note_id = 1;
+
+$note = Note::find($order_id, $note_id);
+OR
+$note = Order::note($order_id, $note_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all notes -->
+                    <div id="retrieve-notes"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all notes</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Note;</span> or simply <span>use Note;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+
+$notes = Note::all($order_id);
+OR
+$notes = Order::notes($order_id);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Delete a note -->
+                <div id="delete-note"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a order note</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Note;</span> or simply <span>use Note;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+$note_id = 1;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$note = Note::delete($order_id, $note_id, $options);
+OR
+$note = Order::deleteNote($order_id, $note_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                
+              </section><!-- end refund -->
+              <!-- Start refund -->
+              <section id="refund-section" class="doc-section">
+                    <h2 class="section-title">Order refund</h2>
+                    <h3 class="block-title">Properties</h3>
+                    <div class="block">See all order refund properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#order-refund-properties</span></div>
+                    <div id="create-refund"  class="section-block">
+                      
+                      <!-- Start Create -->
+                      <h3 class="block-title">Create refund</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Refund;</span> or simply <span>use Refund;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php 
+
+$order_id = 173;
+$data = [
+    'amount' => '10'
+];
+
+$refund = Refund::create($order_id, $data);
+
+OR
+
+$refund = Order::createRefund($order_id, $data);
+              </code></pre>
+            </div><!--//code-block-->
+
+          </div><!--//section-block-->
+
+            <!-- Start Retrieve order -->
+            <div id="retrieve-refund"  class="section-block">
+              <!-- Start Create -->
+              <h3 class="block-title">Retrieve a refund</h3>
+              <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Refund;</span> or simply <span>use Refund;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+              <div class="code-block" > 
+               <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+$refund_id = 1;
+
+$refund = Refund::find($order_id, $refund_id);
+OR
+$refund = Order::refund($order_id, $refund_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all refunds -->
+                    <div id="retrieve-refunds"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all refunds</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Refund;</span> or simply <span>use Refund;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+
+$refunds = Refund::all($order_id);
+OR
+$refunds = Order::refunds($order_id);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Delete a refund -->
+                <div id="delete-refund"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a order refund</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Refund;</span> or simply <span>use Refund;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$order_id = 173;
+$refund_id = 1;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$refund = Refund::delete($order_id, $refund_id, $options);
+OR
+$refund = Order::deleteRefund($order_id, $refund_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                
+              </section>
+              <!-- Start Report -->
+              <section id="report-section" class="doc-section">
+                <h2 class="section-title">Reports</h2>
+                  <!-- Retrieve all orders -->
+                  <div id="list-all-reports"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve all report</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-sales-report"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve sales report</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::sales();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-top-sellers-report"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve top sellers report</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::topSellers();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-coupons-totals"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve coupons totals</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::coupons();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-customers-totals"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve customers totals</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::customers();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-orders-totals"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve orders totals</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::orders();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-products-totals"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve products totals</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::products();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <div id="retrieve-reviews-totals"  class="section-block">
+                    <!-- Start Create -->
+                    <h3 class="block-title">Retrieve reviews totals</h3>
+                    <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Report;</span> or simply <span>use Report;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                    <div class="code-block" > 
+                     <pre><code class="language-php">
+&lt;?php
+
+$orders = Report::reviews();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section>
+                </div><!--//content-inner-->
+              </div>
+                <!--================== doc-content  Start =================== -->
+            </div><!--//doc-body-->              
+        </div><!--//container-->
+    </div><!--//doc-wrapper-->
+    <!--=========== footer Start =========-->
+    <footer id="footer" class="footer text-center">
+        <div class="container">
+              <p>@All right reserved <a href="http://codexshaper.com/">codexshaper</a> 2020.</p>
+        </div>
+    </footer>
+</div><!--//page-wrapper-->
+<!--=========== footer End =========-->
+
+<!-- Main Javascript -->          
+<script type="text/javascript" src="assets/plugins/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>    
+<script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>      
+<script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>                                                                                                                    
+<script type="text/javascript" src="assets/js/main.js"></script>
+<script>
+    $(function(){
+        $(".doc-sidebar").css({
+            height: $(window).height() - $("header").outerHeight()
+        });
+
+        $(window).scroll(function(){
+            let scrollTop = $(window).scrollTop()
+            let offsetTop = $(".doc-wrapper").offset().top
+            console.log(offsetTop - scrollTop);
+            if((offsetTop - scrollTop) >= 0) {
+                $(".doc-sidebar").css({
+                    height: scrollTop + $(window).height() - $("header").outerHeight()
+                });
+            }
+            
+        });
+    });
+</script>
+</body>
+</html> 
+
