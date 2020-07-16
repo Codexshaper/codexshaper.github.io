@@ -49,6 +49,7 @@
                             <a class="nav-link scrollto" href="#relationship">Relationship</a>
                             <a class="nav-link scrollto" href="#record">Record</a>
                             <a class="nav-link scrollto" href="#backup">Backup</a>
+                            <a class="nav-link scrollto" href="#server-configuration">Server Configuration</a>
                             <a class="nav-link scrollto" href="#config">Config</a>
                             <a class="nav-link scrollto" href="#publish">Publish</a>
                             <a class="nav-link scrollto" href="#command">Command</a>
@@ -882,6 +883,44 @@ class OptionController extends Controller
                                  </code></pre>
                             </div>
                         </section><!-- End Backup -->
+                        <!-- Server configuration -->
+                        <section id="server-configuration" class="doc-section">
+                            <h2 class="section-title">Server Configuration for Database Backup</h2>
+                            <p class="block">When you run your project in sub directory or sub domain then may you need to configure your server to work database dumper. Sometime may dumper (specially mysql) not working because of misconfiured. Here I show you how to configure your laravel project in xampp on windows 10.</p>
+
+                            <p class="block">Step 1: Open your hosts file. In my case <span>C:\Windows\System32\drivers\etc\hosts</span> and add below line at end of file</p>
+                            
+                            <p class="block"><span>127.0.0.1  yourdomain.com</span></p>
+
+                            <p class="block">Save the file.</p>
+
+                            <p class="block">Step 2: Setup virtual host to link your domain with your project.</p>
+                            <div class="code-block" > 
+                              <pre><code class="language-php">
+
+&lt;VirtualHost *:80&gt;
+    ServerName yourdomain.com
+    DocumentRoot C:\xampp\htdocs\project-folder\public
+ 
+    SetEnv APPLICATION_ENV "development"
+ 
+    &lt;Directory C:\xampp\htdocs\project-folder\public&gt;
+        DirectoryIndex index.php
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+                          </code></pre>
+                          </div>   
+                          <p class="block">Change <span>yourdomain.com</span> to your original domain and <span>project-folder</span> to your own project folder.</p>
+
+                          <p class="block">Finaly, Restart your server. Done!</p>
+
+                            <!-- Publish Config -->
+                            
+        
+                        </section>
                         <!-- Config -->
                         <section id="config" class="doc-section">
                             <h2 class="section-title">Config</h2>
