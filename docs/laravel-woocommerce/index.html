@@ -65,6 +65,14 @@
                                     <a class="nav-link scrollto" href="#customer-downloads">Downloads</a>
                                 </nav><!--//nav-->
                             </a>
+                            <!-- Payment Gateway menu -->
+                            <a class="nav-link scrollto" href="#payment-section">Payment Gateway
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#retrieve-payment-gateway">Retrieve an payment gateway</a>
+                                    <a class="nav-link scrollto" href="#retrieve-payment-gateways">Retrieve all payment gateways</a>
+                                    <a class="nav-link scrollto" href="#update-payment-gateway">Update a payment gateway</a>
+                                </nav><!--//nav-->
+                            </a>
                             <!-- Product menu -->
                             <a class="nav-link scrollto" href="#product-section">Product
                                 <nav class="doc-sub-menu nav flex-column">
@@ -585,6 +593,69 @@ $downloads = Customer::downloads($customer_id);
 
                     </div>
                   </section> <!-- End Customer -->
+                  <!-- Start payment gateway -->
+                  <section id="payment-section" class="doc-section">
+                      <h2 class="section-title">Payment Gateway</h2>
+
+                      <div id="create-product"  class="section-block">
+                        <h3 class="block-title">Properties</h3>
+                        <div class="block">See all product properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#payment-gateway-properties</span></div>
+                        <!-- Start Create -->
+                        <h3 class="block-title">Create a product</h3>
+                        <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\PaymentGateway;</span> or simply <span>use PaymentGateway;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+
+                        <!-- Start -->
+
+                        </div><!--//section-block-->
+
+                        <!-- Start Retrieve Payment Gateway -->
+                        <div id="retrieve-payment-gateway"  class="section-block">
+                          <!-- Start Create -->
+                          <h3 class="block-title">Retrieve an payment gateway</h3>
+                          <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\PaymentGateway;</span> or simply <span>use PaymentGateway;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                          <div class="code-block" > 
+                           <pre><code class="language-php">
+&lt;?php
+$name = 'bacs';
+$paymentGateway = PaymentGateway::find($name);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all payment gateways -->
+                    <div id="retrieve-payment-gateways"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all payment gateways</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\PaymentGateway;</span> or simply <span>use PaymentGateway;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$paymentGateways = PaymentGateway::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update an payment gateway-->
+                <div id="update-payment-gateway"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update an payment gateway</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\PaymentGateway;</span> or simply <span>use PaymentGateway;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$name = 'bacs';
+$data = [
+    'enabled' => true
+];
+
+$paymentGateway = PaymentGateway::update($name, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Payment Gateway -->
                   <!-- Start product -->
                   <section id="product-section" class="doc-section">
                       <h2 class="section-title">Product</h2>
