@@ -192,6 +192,17 @@
                                     <a class="nav-link scrollto" href="#retrieve-reviews-totals">Retrieve reviews totals</a>
                                 </nav><!--//nav-->
                             </a>
+                            <!-- Webhook menu -->
+                            <a class="nav-link scrollto" href="#webhook-section">Webhook
+                                <nav class="doc-sub-menu nav flex-column">
+                                    <a class="nav-link scrollto" href="#create-webhook">Create a webhook</a>
+                                    <a class="nav-link scrollto" href="#retrieve-webhook">Retrieve a webhook</a>
+                                    <a class="nav-link scrollto" href="#retrieve-webhooks">Retrieve all webhooks</a>
+                                    <a class="nav-link scrollto" href="#update-webhook">Update a webhook</a>
+                                    <a class="nav-link scrollto" href="#delete-webhook">Delete a webhook</a>
+                                    <a class="nav-link scrollto" href="#batch-webhook">Batch update webhooks</a>
+                                </nav><!--//nav-->
+                            </a>
                         </nav><!--//doc-menu-->
                     </div>
                 </div>
@@ -2341,6 +2352,136 @@ $orders = Report::reviews();
 
                 </div>
               </section>
+              <!-- Start webhook -->
+                  <section id="webhook-section" class="doc-section">
+                      <h2 class="section-title">Webhook</h2>
+
+                      <div id="create-webhook"  class="section-block">
+                        <h3 class="block-title">Properties</h3>
+                        <div class="block">See all webhook properties from here <span>https://woocommerce.github.io/woocommerce-rest-api-docs/#webhook-properties</span></div>
+                        <!-- Start Create -->
+                        <h3 class="block-title">Create a webhook</h3>
+                        <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Webhook;</span> or simply <span>use Webhook;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                        <h3 class="block">Create simple product</h3> 
+                        <div class="code-block" > 
+                         <pre><code class="language-php">
+&lt;?php 
+
+$data = [
+    'name' => 'Order updated',
+    'topic' => 'order.updated',
+    'delivery_url' => 'http://requestb.in/1g0sxmo1'
+];
+
+$webhook = Webhook::create($data);
+            </code></pre>
+          </div><!--//code-block-->
+                        <!-- Start -->
+
+                        </div><!--//section-block-->
+
+                        <!-- Start Retrieve Webhook -->
+                        <div id="retrieve-webhook"  class="section-block">
+                          <!-- Start Create -->
+                          <h3 class="block-title">Retrieve a webhook</h3>
+                          <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Webhook;</span> or simply <span>use Webhook;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                          <div class="code-block" > 
+                           <pre><code class="language-php">
+&lt;?php
+$hook_id = 1;
+$webhook = Webhook::find($hook_id);
+                        </code></pre>
+                      </div><!--//code-block-->
+                    </div>
+                    <!-- Retrieve all webhooks -->
+                    <div id="retrieve-webhooks"  class="section-block">
+                      <!-- Start Create -->
+                      <h3 class="block-title">Retrieve all products</h3>
+                      <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Webhook;</span> or simply <span>use Webhook;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                      <div class="code-block" > 
+                       <pre><code class="language-php">
+&lt;?php
+
+$webhooks = Webhook::all();
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+
+                <!-- Update a webhook-->
+                <div id="update-webhook"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Update a webhook</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Webhook;</span> or simply <span>use Webhook;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$hook_id = 40;
+$data = [
+    'status' => 'paused'
+];
+
+$webhook = Webhook::update($hook_id, $data);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Delete a webhook -->
+                <div id="delete-webhook"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Delete a webhook</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Webhook;</span> or simply <span>use Webhook;</span> To avoid conflict with other class use full qualified classes (with namespace).</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$hook_id = 40;
+$options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+$webhook = Webhook::delete($hook_id, $options);
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+                <!-- Batch update webhooks -->
+                <div id="batch-webhook"  class="section-block">
+                  <!-- Start Create -->
+                  <h3 class="block-title">Batch update webhooks</h3>
+                  <div class="block"> Import <span>use Codexshaper\WooCommerce\Facades\Webhook;</span> or simply <span>use Webhook;</span> To avoid conflict with other class use full qualified classes (with namespace).</div> 
+                  <div class="block">Create, Update and Delete in one command</div>
+                  <div class="code-block" > 
+                    <pre><code class="language-php">
+&lt;?php
+
+$data = [
+    'create' => [
+        [
+            'name' => 'Round toe',
+            'topic' => 'coupon.created',
+            'delivery_url' => 'http://requestb.in/1g0sxmo1'
+        ],
+        [
+            'name' => 'Customer deleted',
+            'topic' => 'customer.deleted',
+            'delivery_url' => 'http://requestb.in/1g0sxmo1'
+        ]
+    ],
+    'update' => [
+        'status' => 'paused'
+    ],
+    'delete' => [
+        143
+    ]
+];
+
+$batch = Webhook::batch($data);
+
+                    </code></pre>
+                  </div><!--//code-block-->
+
+                </div>
+              </section><!-- End Webhook -->
                 </div><!--//content-inner-->
               </div>
                 <!--================== doc-content  Start =================== -->
